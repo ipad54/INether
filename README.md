@@ -1,7 +1,7 @@
 # INether
 
 <p align="center">
-	<a href="https://vk.com/m.play2018"><img src="https://sun9-25.userapi.com/impg/1wFzKO1fyNXBo2rYq1Fc3EQvELGlT1IfbHH4sw/_zsCY5pvLzk.jpg?size=350x350&quality=96&sign=2875eeafccef8edccd8ab41a4c19959f&type=album"></img></a><br>
+	<a href="https://vk.com/m.play2018"><img src="https://github.com/redmcteam/INether/blob/e6ff0b67807b56ded263cf3ebca27dbd5710e35b/image.png"></img></a><br>
 	<b>This plugin adds 95% of 1.16 blocks & items and their functionality</b>
 </p>
 
