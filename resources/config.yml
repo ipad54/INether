@@ -1,0 +1,36 @@
+#To disable block or item set false, to enable - true
+blocks:
+  ancient_debris: true
+  # (All Types of Basalt)
+  basalt: true
+  fungus: true
+  #SoulSoil & SoulFire
+  soul_soil: true
+  #Crimson & Warped
+  nylium: true
+  netherite_block: true
+  shroomlight: true
+  soul_lantern: true
+  soul_torch: true
+  #(warped)
+  nether_wart: true
+  crying_obsidian: true
+  target: true
+  nether_gold_ore: true
+  respawn_anchor: true
+  #All types of BlackStone
+  blackstone: true
+  chain: true
+  #Crimson & Warped
+  vines: true
+  #Crimson & Warped
+  roots: true
+  #All types of nether wood
+  wood: true
+  #All types of nether stairs
+  stairs: true
+
+items:
+  record_pigstep: true
+  #Netherite Armor & Tools, Netherite Scrap & Ingot
+  netherite_tools: true
