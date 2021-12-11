@@ -25,5 +25,5 @@ This plugin adds 95% 1.16 blocks and their functionality
 - [X] Record pigstep
 - [X] Netherite ingot & scrap
 - [X] Netherite Armor & Tools
-- [] Lodestone
-- [] Campfire
+- [ ] Lodestone
+- [ ] Campfire
