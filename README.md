@@ -5,6 +5,10 @@
 	<b>This plugin adds 95% of 1.16 blocks & items and their functionality</b>
 </p>
 
+### NOTICE!
+
+- This plugin is works only with Pocketmine-MP 4.0.0+ 
+
 ### Implemented blocks
 - [X] Ancient Debris
 - [X] All types of Basalt
