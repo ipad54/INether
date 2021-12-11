@@ -1,5 +1,9 @@
 # INether
-This plugin adds 95% of 1.16 blocks & items and their functionality
+
+<p align="center">
+	<a href="https://vk.com/m.play2018"><img src="https://github.com/redmcteam/INether/blob/e6ff0b67807b56ded263cf3ebca27dbd5710e35b/image.png"></img></a><br>
+	<b>This plugin adds 95% of 1.16 blocks & items and their functionality</b>
+</p>
 
 ### Implemented blocks
 - [X] Ancient Debris
