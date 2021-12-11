@@ -1,5 +1,5 @@
 # INether
-This plugin adds 95% 1.16 blocks and their functionality
+This plugin adds 95% of 1.16 blocks & items and their functionality
 
 ### Implemented blocks
 - [X] Ancient Debris
