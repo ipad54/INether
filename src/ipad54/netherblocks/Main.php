@@ -34,7 +34,6 @@ use ipad54\netherblocks\blocks\WarpedWartBlock;
 use ipad54\netherblocks\blocks\WeepingVines;
 use ipad54\netherblocks\blocks\Wood;
 use ipad54\netherblocks\items\FlintAndSteel;
-use ipad54\netherblocks\items\LodestoneCompass;
 use ipad54\netherblocks\utils\CustomConfig;
 use ipad54\netherblocks\utils\CustomIds;
 use pocketmine\block\BlockBreakInfo;
@@ -45,18 +44,12 @@ use pocketmine\block\BlockToolType;
 use pocketmine\block\Door;
 use pocketmine\block\Fence;
 use pocketmine\block\FenceGate;
-use pocketmine\block\FloorSign;
 use pocketmine\block\Opaque;
 use pocketmine\block\Stair;
-use pocketmine\block\Stem;
-use pocketmine\block\tile\Sign;
-use pocketmine\block\Transparent;
 use pocketmine\block\utils\RecordType;
 use pocketmine\block\utils\TreeType;
-use pocketmine\block\WallSign;
-use pocketmine\event\Listener;
-use pocketmine\event\player\PlayerJoinEvent;
-use pocketmine\inventory\CreativeInventory;
+use pocketmine\block\WoodenTrapdoor;
+use pocketmine\item\ItemBlock;
 use pocketmine\lang\Translatable;
 use pocketmine\inventory\ArmorInventory;
 use pocketmine\item\Armor;
@@ -80,7 +73,7 @@ use pocketmine\utils\Config;
 use ReflectionMethod;
 use const pocketmine\BEDROCK_DATA_PATH;
 
-class Main extends PluginBase implements Listener
+class Main extends PluginBase
 {
 
     private CustomConfig $config;
@@ -139,6 +132,7 @@ class Main extends PluginBase implements Listener
             }
         }
     }
+
 
 
     public function initBlocks(): void
@@ -240,12 +234,14 @@ class Main extends PluginBase implements Listener
 
             $bf->register(new Hyphae(new BID(CustomIds::CRIMSON_STRIPPED_HYPHAE_BLOCK, 0, CustomIds::CRIMSON_STRIPPED_HYPHAE_ITEM), "Crimson Stripped Hyphae", new BlockBreakInfo(2, BlockToolType::AXE, 0, 10), TreeType::CRIMSON(), true), true);
             $bf->register(new Hyphae(new BID(CustomIds::WARPED_STRIPPED_HYPHAE_BLOCK, 0, CustomIds::WARPED_STRIPPED_HYPHAE_ITEM), "Warped Stripped Hyphae", new BlockBreakInfo(2, BlockToolType::AXE, 0, 10), TreeType::WARPED(), true), true);
-            $bf->register(new Door(new BID(CustomIds::CRIMSON_DOOR_BLOCK, 0, CustomIds::CRIMSON_DOOOR_ITEM), "Crimson Door", new BlockBreakInfo(3, BlockToolType::AXE)), true);
-            $bf->register(new Door(new BID(CustomIds::WARPED_DOOR_BLOCK, 0, CustomIds::WARPED_DOOR_ITEM), "Warped Door", new BlockBreakInfo(3, BlockToolType::AXE)), true);
+            $bf->register(new Door(new BID(CustomIds::CRIMSON_DOOR_BLOCK, 0, CustomIds::CRIMSON_DOOOR_ITEM), "Crimson Door", new BlockBreakInfo(3, BlockToolType::AXE)));
+            $bf->register(new Door(new BID(CustomIds::WARPED_DOOR_BLOCK, 0, CustomIds::WARPED_DOOR_ITEM), "Warped Door", new BlockBreakInfo(3, BlockToolType::AXE)));
             $bf->register(new Fence(new BID(CustomIds::CRIMSON_FENCE_BLOCK, 0, CustomIds::CRIMSON_FENCE_ITEM), "Crimson Fence", new BlockBreakInfo(2, BlockToolType::AXE, 0, 3)), true);
             $bf->register(new Fence(new BID(CustomIds::WARPED_FENCE_BLOCK, 0, CustomIds::WARPED_FENCE_ITEM), "Warped Fence", new BlockBreakInfo(2, BlockToolType::AXE, 0, 3)), true);
             $bf->register(new FenceGate(new BID(CustomIds::CRIMSON_FENCE_GATE_BLOCK, 0, CustomIds::CRIMSON_FENCE_GATE_ITEM), "Crimson Fence Gate", new BlockBreakInfo(2, BlockToolType::AXE, 0, 3)), true);
             $bf->register(new FenceGate(new BID(CustomIds::WARPED_FENCE_GATE_BLOCK, 0, CustomIds::WARPED_FENCE_GATE_ITEM), "Warped Fence Gate", new BlockBreakInfo(2, BlockToolType::AXE, 0, 3)), true);
+            $bf->register(new WoodenTrapdoor(new BID(CustomIds::CRIMSON_TRAPDOOR_BLOCK, 0, CustomIds::CRIMSON_TRAPDOOR_ITEM), "Crimson Trapdoor", new BlockBreakInfo(3, BlockToolType::AXE, 0, 15)), true);
+            $bf->register(new WoodenTrapdoor(new BID(CustomIds::WARPED_TRAPDOOR_BLOCK, 0, CustomIds::WARPED_TRAPDOOR_ITEM), "Warped Trapdoor", new BlockBreakInfo(3, BlockToolType::AXE, 0, 15)), true);
         }
         if ($cfg->isEnableStairs()) {
             $bf->register(new Stair(new BID(CustomIds::BLACKSTONE_STAIRS_BLOCK, 0, CustomIds::BLACKSTONE_STAIRS_ITEM), "Blackstone Stairs", new BlockBreakInfo(3, BlockToolType::AXE, 0, 6)), true);
@@ -288,6 +284,10 @@ class Main extends PluginBase implements Listener
         }
         if ($cfg->isEnablePigstep()) {
             $factory->register(new Record(new ItemIdentifier(CustomIds::RECORD_PIGSTEP, 0), RecordType::DISK_PIGSTEP(), "Pigstep"), true);
+        }
+        if($cfg->isEnableWood()){
+            $factory->register(new ItemBlock(new ItemIdentifier(CustomIds::CRIMSON_DOOOR_ITEM, 0), BlockFactory::getInstance()->get(CustomIds::CRIMSON_DOOR_BLOCK, 0)), true);
+            $factory->register(new ItemBlock(new ItemIdentifier(CustomIds::WARPED_DOOR_ITEM, 0), BlockFactory::getInstance()->get(CustomIds::WARPED_DOOR_BLOCK, 0)), true);
         }
         if ($cfg->isEnableNetheriteTools()) {
             $factory->register(new Item(new ItemIdentifier(CustomIds::ITEM_NETHERITE_INGOT, 0), 'Netherite Ingot'), true);

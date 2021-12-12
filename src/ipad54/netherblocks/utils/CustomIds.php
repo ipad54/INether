@@ -52,7 +52,7 @@ final class CustomIds {
     public const CHISELED_POLISHED_BLACKSTONE_ITEM = -279;
     public const GILDED_BLACKSTONE_BLOCK = 536;
     public const GILDED_BLACKSTONE_ITEM = -281;
-    public const CHAIN_BLOCK = 189;
+    public const CHAIN_BLOCK = 541;
     public const CHAINT_ITEM = -286;
     public const WEEPING_VINES_BLOCK = 486;
     public const WEEPING_VINES_ITEM = -231;
@@ -110,9 +110,9 @@ final class CustomIds {
     public const WARPED_STRIPPED_HYPHAE_BLOCK = 556;
     public const WARPED_STRIPPED_HYPHAE_ITEM = -301;
     public const CRIMSON_DOOR_BLOCK = 499;
-    public const CRIMSON_DOOOR_ITEM = 615;
+    public const CRIMSON_DOOOR_ITEM = 755;
     public const WARPED_DOOR_BLOCK = 500;
-    public const WARPED_DOOR_ITEM = 616;
+    public const WARPED_DOOR_ITEM = 756;
     public const CRIMSON_FENCE_BLOCK = 511;
     public const WARPED_FENCE_BLOCK = 512;
     public const CRIMSON_FENCE_ITEM = -256;
@@ -131,5 +131,9 @@ final class CustomIds {
     public const POLISHED_BLACKSTONE_STAIRS_BLOCK= 547;
     public const WARPED_STAIRS_ITEM = -255;
     public const WARPED_STAIRS_BLOCK = 510;
+    public const CRIMSON_TRAPDOOR_ITEM = -246;
+    public const WARPED_TRAPDOOR_ITEM = -247;
+    public const CRIMSON_TRAPDOOR_BLOCK = 501;
+    public const WARPED_TRAPDOOR_BLOCK = 502;
 
 }
