@@ -214,7 +214,7 @@ class Main extends PluginBase implements Listener
             $bf->register(new Blackstone(new BID(CustomIds::BLACKSTONE_BLOCK, 0, CustomIds::BLACKSTONE_ITEM), "Blackstone", $blackstoneBreakInfo), true);
             $bf->register(new PolishedBlackStone(new BID(CustomIds::POLISHED_BLACKSTONE_BLOCK, 0, CustomIds::POLISHED_BLACKSTONE_ITEM), "Polished Blackstone", $blackstoneBreakInfo), true);
             $bf->register(new ChiseledPolishedBlackstone(new BID(CustomIds::CHISELED_POLISHED_BLACKSTONE_BLOCK, 0, CustomIds::CHISELED_POLISHED_BLACKSTONE_ITEM), "Chiseled Polished Blackstone", $blackstoneBreakInfo), true);
-            $bf->register(new GildedBlackstone(new BID(CustomIds::GILDED_BLACKSTONE_BLOCK, 0, CustomIds::GILDED_BLACKSTONE_ITEM), "Gilded Blackstone", $blackstoneBreakInfo));
+            $bf->register(new GildedBlackstone(new BID(CustomIds::GILDED_BLACKSTONE_BLOCK, 0, CustomIds::GILDED_BLACKSTONE_ITEM), "Gilded Blackstone", $blackstoneBreakInfo), true);
         }
         if ($cfg->isEnableChain()) {
             $bf->register(new Chain(new BID(CustomIds::CHAIN_BLOCK, 0, CustomIds::CHAINT_ITEM), "Chain", new BlockBreakInfo(5, BlockToolType::PICKAXE, ToolTier::WOOD()->getHarvestLevel(), 6)), true);
