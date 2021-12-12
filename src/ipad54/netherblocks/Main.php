@@ -159,103 +159,99 @@ class Main extends PluginBase implements Listener
         $bf = BlockFactory::getInstance();
         $cfg = $this->getCustomConfig();
         if ($cfg->isEnabledDebris()) {
-            $bf->register(new Opaque(new BID(CustomIds::ANCIENT_DEBRIS_BLOCK, 0, CustomIds::ANCIENT_DEBRIS_ITEM), "Ancient Debris", new BlockBreakInfo(30, BlockToolType::PICKAXE, ToolTier::DIAMOND()->getHarvestLevel(), 6000)));
+            $bf->register(new Opaque(new BID(CustomIds::ANCIENT_DEBRIS_BLOCK, 0, CustomIds::ANCIENT_DEBRIS_ITEM), "Ancient Debris", new BlockBreakInfo(30, BlockToolType::PICKAXE, ToolTier::DIAMOND()->getHarvestLevel(), 6000)), true);
         }
         if ($cfg->isEnabledBasalt()) {
-            $bf->register(new Basalt(new BID(CustomIds::BASALT_BLOCK, 0, CustomIds::BASALT_ITEM), "Basalt", new BlockBreakInfo(1.25, BlockToolType::PICKAXE, ToolTier::WOOD()->getHarvestLevel(), 4.2)));
-            $bf->register(new PolishedBasalt(new BID(CustomIds::POLISHED_BASALT_BLOCK, 0, CustomIds::POLISHED_BASALT_ITEM), "Polished Basalt", new BlockBreakInfo(1.25, BlockToolType::PICKAXE, ToolTier::WOOD()->getHarvestLevel(), 4.2)));
+            $bf->register(new Basalt(new BID(CustomIds::BASALT_BLOCK, 0, CustomIds::BASALT_ITEM), "Basalt", new BlockBreakInfo(1.25, BlockToolType::PICKAXE, ToolTier::WOOD()->getHarvestLevel(), 4.2)), true);
+            $bf->register(new PolishedBasalt(new BID(CustomIds::POLISHED_BASALT_BLOCK, 0, CustomIds::POLISHED_BASALT_ITEM), "Polished Basalt", new BlockBreakInfo(1.25, BlockToolType::PICKAXE, ToolTier::WOOD()->getHarvestLevel(), 4.2)), true);
         }
         if ($cfg->isEnabledFungus()) {
-            $bf->register(new Fungus(new BID(CustomIds::FUNGUS_BLOCK, 0, CustomIds::FUNGUS_ITEM), "Crimson Fungus", BlockBreakInfo::instant()));
-            $bf->register(new WarpedFungus(new BID(CustomIds::WARPED_FUNGUS_BLOCK, 0, CustomIds::WARPED_FUNGUS_ITEM), "Warped Fungus", BlockBreakInfo::instant()));
+            $bf->register(new Fungus(new BID(CustomIds::FUNGUS_BLOCK, 0, CustomIds::FUNGUS_ITEM), "Crimson Fungus", BlockBreakInfo::instant()), true);
+            $bf->register(new WarpedFungus(new BID(CustomIds::WARPED_FUNGUS_BLOCK, 0, CustomIds::WARPED_FUNGUS_ITEM), "Warped Fungus", BlockBreakInfo::instant()), true);
         }
         if ($cfg->isEnabledSoulSoil()) {
-            $bf->register(new SoulSoil(new BID(CustomIds::SOUL_SOIL_BLOCK, 0, CustomIds::SOUL_SOIL_ITEM), "Soul Soil", new BlockBreakInfo(0.5, BlockToolType::SHOVEL)));
-            $bf->register(new SoulFire(new BID(CustomIds::SOUL_FIRE_BLOCK, 0, CustomIds::SOUL_FIRE_ITEM), "Soul Fire", BlockBreakInfo::instant()));
+            $bf->register(new SoulSoil(new BID(CustomIds::SOUL_SOIL_BLOCK, 0, CustomIds::SOUL_SOIL_ITEM), "Soul Soil", new BlockBreakInfo(0.5, BlockToolType::SHOVEL)), true);
+            $bf->register(new SoulFire(new BID(CustomIds::SOUL_FIRE_BLOCK, 0, CustomIds::SOUL_FIRE_ITEM), "Soul Fire", BlockBreakInfo::instant()), true);
         }
         if ($cfg->isEnabledNylium()) {
-            $bf->register(new Nylium(new BID(CustomIds::NYLIUM_BLOCK, 0, CustomIds::NYLIUM_ITEM), "Crimson Nylium", new BlockBreakInfo(1, BlockToolType::PICKAXE)));
-            $bf->register(new WarpedNylium(new BID(CustomIds::WARPED_NYLIUM_BLOCK, 0, CustomIds::WARPED_NYLIUM_ITEM), "Warped Nylium", new BlockBreakInfo(1, BlockToolType::PICKAXE, ToolTier::WOOD()->getHarvestLevel())));
+            $bf->register(new Nylium(new BID(CustomIds::NYLIUM_BLOCK, 0, CustomIds::NYLIUM_ITEM), "Crimson Nylium", new BlockBreakInfo(1, BlockToolType::PICKAXE)), true);
+            $bf->register(new WarpedNylium(new BID(CustomIds::WARPED_NYLIUM_BLOCK, 0, CustomIds::WARPED_NYLIUM_ITEM), "Warped Nylium", new BlockBreakInfo(1, BlockToolType::PICKAXE, ToolTier::WOOD()->getHarvestLevel())), true);
         }
         if ($cfg->isEnableNetheriteBlock()) {
-            $bf->register(new Opaque(new BID(CustomIds::NETHERITE_BLOCK, 0, CustomIds::NETHERITE_BLOCK_ITEM), "Netherite Block", new BlockBreakInfo(50, BlockToolType::PICKAXE, ToolTier::DIAMOND()->getHarvestLevel(), 6000)));
+            $bf->register(new Opaque(new BID(CustomIds::NETHERITE_BLOCK, 0, CustomIds::NETHERITE_BLOCK_ITEM), "Netherite Block", new BlockBreakInfo(50, BlockToolType::PICKAXE, ToolTier::DIAMOND()->getHarvestLevel(), 6000)), true);
         }
         //$bf->register(new NetherSprouts(new BID(CustomIds::NETHER_SPROUTS_BLOCK, 0, CustomIds::NETHER_SPROUTS_ITEM), "Nether Sprouts", BlockBreakInfo::instant(BlockToolType::SHEARS)));
         if ($cfg->isEnableShroomlight()) {
-            $bf->register(new Shroomlight(new BID(CustomIds::SHROOMLIGHT_BLOCK, 0, CustomIds::SHROOMLIGHT_ITEM), "Shroomlight", new BlockBreakInfo(1, BlockToolType::HOE)));
+            $bf->register(new Shroomlight(new BID(CustomIds::SHROOMLIGHT_BLOCK, 0, CustomIds::SHROOMLIGHT_ITEM), "Shroomlight", new BlockBreakInfo(1, BlockToolType::HOE)), true);
         }
         if ($cfg->isEnableSoullantern()) {
-            $bf->register(new SoulLantern(new BID(CustomIds::SOUL_LANTERN_BLOCK, 0, CustomIds::SOUL_LANTERN_ITEM), "Soul Lantern", new BlockBreakInfo(3.5, BlockToolType::PICKAXE, ToolTier::WOOD()->getHarvestLevel(), 3.5)));
+            $bf->register(new SoulLantern(new BID(CustomIds::SOUL_LANTERN_BLOCK, 0, CustomIds::SOUL_LANTERN_ITEM), "Soul Lantern", new BlockBreakInfo(3.5, BlockToolType::PICKAXE, ToolTier::WOOD()->getHarvestLevel(), 3.5)), true);
         }
         if ($cfg->isEnableSoulTorch()) {
-            $bf->register(new SoulTorch(new BID(CustomIds::SOUL_TORCH_BLOCK, 0, CustomIds::SOUL_TORCH_ITEM), "Soul Torch", BlockBreakInfo::instant()));
+            $bf->register(new SoulTorch(new BID(CustomIds::SOUL_TORCH_BLOCK, 0, CustomIds::SOUL_TORCH_ITEM), "Soul Torch", BlockBreakInfo::instant()), true);
         }
         if ($cfg->isEnableNetherwart()) {
             $bf->register(new NetherWartBlock(new BID(CustomIds::NETHER_WART_BLOCK, 0), "Nether Wart Block", new BlockBreakInfo(1, BlockToolType::HOE, 0, 5)), true);
-            $bf->register(new WarpedWartBlock(new BID(CustomIds::WARPED_WART_BLOCK, 0, CustomIds::WARPED_WART_ITEM), "Warped Wart Block", new BlockBreakInfo(1, BlockToolType::HOE, 0, 5)));
+            $bf->register(new WarpedWartBlock(new BID(CustomIds::WARPED_WART_BLOCK, 0, CustomIds::WARPED_WART_ITEM), "Warped Wart Block", new BlockBreakInfo(1, BlockToolType::HOE, 0, 5)), true);
         }
         if ($cfg->isEnableCryingObsidian()) {
-            $bf->register(new CryingObsidian(new BID(CustomIds::CRYING_OBSIDIAN_BLOCK, 0, CustomIds::CRYING_OBSIDIAN_ITEM), "Crying Obsidian", new BlockBreakInfo(50, BlockToolType::PICKAXE, ToolTier::DIAMOND()->getHarvestLevel(), 6000)));
+            $bf->register(new CryingObsidian(new BID(CustomIds::CRYING_OBSIDIAN_BLOCK, 0, CustomIds::CRYING_OBSIDIAN_ITEM), "Crying Obsidian", new BlockBreakInfo(50, BlockToolType::PICKAXE, ToolTier::DIAMOND()->getHarvestLevel(), 6000)), true);
         }
         if ($cfg->isEnableTarget()) {
-            $bf->register(new Target(new BID(CustomIds::TARGET_BLOCK, 0, CustomIds::TARGET_ITEM), "Target", BlockBreakInfo::instant(BlockToolType::HOE)));
+            $bf->register(new Target(new BID(CustomIds::TARGET_BLOCK, 0, CustomIds::TARGET_ITEM), "Target", BlockBreakInfo::instant(BlockToolType::HOE)), true);
         }
         if ($cfg->isEnableGoldOre()) {
-            $bf->register(new NetherGoldOre(new BID(CustomIds::NETHER_GOLD_ORE_BLOCK, 0, CustomIds::NETHER_GOLD_ORE_ITEM), "Nether Gold Ore", new BlockBreakInfo(3, BlockToolType::PICKAXE, ToolTier::WOOD()->getHarvestLevel(), 3)));
+            $bf->register(new NetherGoldOre(new BID(CustomIds::NETHER_GOLD_ORE_BLOCK, 0, CustomIds::NETHER_GOLD_ORE_ITEM), "Nether Gold Ore", new BlockBreakInfo(3, BlockToolType::PICKAXE, ToolTier::WOOD()->getHarvestLevel(), 3)), true);
         }
         if ($cfg->isEnabledRespawnAnchor()) {
-            $bf->register(new RespawnAnchor(new BID(CustomIds::RESPAWN_ANCHOR_BLOCK, 0, CustomIds::RESPAWN_ANCHOR_ITEM), "Respawn Anchor", new BlockBreakInfo(50, BlockToolType::PICKAXE, ToolTier::DIAMOND()->getHarvestLevel(), 6000)));
+            $bf->register(new RespawnAnchor(new BID(CustomIds::RESPAWN_ANCHOR_BLOCK, 0, CustomIds::RESPAWN_ANCHOR_ITEM), "Respawn Anchor", new BlockBreakInfo(50, BlockToolType::PICKAXE, ToolTier::DIAMOND()->getHarvestLevel(), 6000)), true);
         }
 
         if ($cfg->isEnableBlackstone()) {
 
             $blackstoneBreakInfo = new BlockBreakInfo(1.5, BlockToolType::PICKAXE, ToolTier::WOOD()->getHarvestLevel(), 6);
 
-            $bf->register(new Blackstone(new BID(CustomIds::BLACKSTONE_BLOCK, 0, CustomIds::BLACKSTONE_ITEM), "Blackstone", $blackstoneBreakInfo));
-            $bf->register(new PolishedBlackStone(new BID(CustomIds::POLISHED_BLACKSTONE_BLOCK, 0, CustomIds::POLISHED_BLACKSTONE_ITEM), "Polished Blackstone", $blackstoneBreakInfo));
-            $bf->register(new ChiseledPolishedBlackstone(new BID(CustomIds::CHISELED_POLISHED_BLACKSTONE_BLOCK, 0, CustomIds::CHISELED_POLISHED_BLACKSTONE_ITEM), "Chiseled Polished Blackstone", $blackstoneBreakInfo));
+            $bf->register(new Blackstone(new BID(CustomIds::BLACKSTONE_BLOCK, 0, CustomIds::BLACKSTONE_ITEM), "Blackstone", $blackstoneBreakInfo), true);
+            $bf->register(new PolishedBlackStone(new BID(CustomIds::POLISHED_BLACKSTONE_BLOCK, 0, CustomIds::POLISHED_BLACKSTONE_ITEM), "Polished Blackstone", $blackstoneBreakInfo), true);
+            $bf->register(new ChiseledPolishedBlackstone(new BID(CustomIds::CHISELED_POLISHED_BLACKSTONE_BLOCK, 0, CustomIds::CHISELED_POLISHED_BLACKSTONE_ITEM), "Chiseled Polished Blackstone", $blackstoneBreakInfo), true);
             $bf->register(new GildedBlackstone(new BID(CustomIds::GILDED_BLACKSTONE_BLOCK, 0, CustomIds::GILDED_BLACKSTONE_ITEM), "Gilded Blackstone", $blackstoneBreakInfo));
-
-            $bf->register(new Stair(new BID(CustomIds::BLACKSTONE_STAIRS_BLOCK, 0, CustomIds::BLACKSTONE_STAIRS_ITEM), "Blackstone Stairs", new BlockBreakInfo(3, BlockToolType::AXE, 0, 6)));
-            $bf->register(new Stair(new BID(CustomIds::CRIMSON_STAIRS_BLOCK, 0, CustomIds::CRIMSON_STAIRS_ITEM), "Crimson Stairs", new BlockBreakInfo(3, BlockToolType::AXE, 0, 6)));
-            $bf->register(new Stair(new BID(CustomIds::POLISHED_BLACKSTONE_BRICK_STAIRS_BLOCK, 0, CustomIds::POLISHED_BLACKSTONE_BRICK_STAIRS_ITEM), "Polished Blackstone Brick Stairs", new BlockBreakInfo(3, BlockToolType::AXE, 0, 6)));
-            $bf->register(new Stair(new BID(CustomIds::POLISHED_BLACKSTONE_STAIRS_BLOCK, 0, CustomIds::POLISHED_BLACKSTONE_STAIRS_ITEM), "Polished Blackstone Stairs", new BlockBreakInfo(3, BlockToolType::AXE, 0, 6)));
-            $bf->register(new Stair(new BID(CustomIds::WARPED_STAIRS_BLOCK, 0, CustomIds::WARPED_STAIRS_ITEM), "Warped Stairs", new BlockBreakInfo(3, BlockToolType::AXE, 0, 6)));
         }
         if ($cfg->isEnableChain()) {
-            $bf->register(new Chain(new BID(CustomIds::CHAIN_BLOCK, 0, CustomIds::CHAINT_ITEM), "Chain", new BlockBreakInfo(5, BlockToolType::PICKAXE, ToolTier::WOOD()->getHarvestLevel(), 6)));
+            $bf->register(new Chain(new BID(CustomIds::CHAIN_BLOCK, 0, CustomIds::CHAINT_ITEM), "Chain", new BlockBreakInfo(5, BlockToolType::PICKAXE, ToolTier::WOOD()->getHarvestLevel(), 6)), true);
         }
         if ($cfg->isEnableVines()) {
-            $bf->register(new TwistingVines(new BID(CustomIds::TWISTING_VINES_BLOCK, 0, CustomIds::TWISTING_VINES_ITEM), "Twisting Vines", BlockBreakInfo::instant()));
-            $bf->register(new WeepingVines(new BID(CustomIds::WEEPING_VINES_BLOCK, 0, CustomIds::WEEPING_VINES_ITEM), "Weeping Vines", BlockBreakInfo::instant()));
+            $bf->register(new TwistingVines(new BID(CustomIds::TWISTING_VINES_BLOCK, 0, CustomIds::TWISTING_VINES_ITEM), "Twisting Vines", BlockBreakInfo::instant()), true);
+            $bf->register(new WeepingVines(new BID(CustomIds::WEEPING_VINES_BLOCK, 0, CustomIds::WEEPING_VINES_ITEM), "Weeping Vines", BlockBreakInfo::instant()), true);
         }
         if ($cfg->isEnableRoots()) {
-            $bf->register(new Roots(new BID(CustomIds::CRIMSON_ROOTS_BLOCK, 0, CustomIds::CRIMSON_ROOTS_ITEM), "Crimson Roots", BlockBreakInfo::instant()));
-            $bf->register(new Roots(new BID(CustomIds::WARPED_ROOTS_BLOCK, 0, CustomIds::WARPED_ROOTS_ITEM), "Warped Roots", BlockBreakInfo::instant()));
+            $bf->register(new Roots(new BID(CustomIds::CRIMSON_ROOTS_BLOCK, 0, CustomIds::CRIMSON_ROOTS_ITEM), "Crimson Roots", BlockBreakInfo::instant()), true);
+            $bf->register(new Roots(new BID(CustomIds::WARPED_ROOTS_BLOCK, 0, CustomIds::WARPED_ROOTS_ITEM), "Warped Roots", BlockBreakInfo::instant()), true);
         }
         if ($cfg->isEnableWood()) {
-            $bf->register(new Planks(new BID(CustomIds::CRIMSON_PLANKS_BLOCK, 0, CustomIds::CRIMSON_PLANKS_ITEM), "Crimson Planks", new BlockBreakInfo(2, BlockToolType::AXE, 0, 3)));
-            $bf->register(new Planks(new BID(CustomIds::WARPED_PLANKS_BLOCK, 0, CustomIds::WARPED_PLANKS_ITEM), "Warped Planks", new BlockBreakInfo(2, BlockToolType::AXE, 0, 3)));
-            $bf->register(new Wood(new BID(CustomIds::CRIMSON_STEM_BLOCK, 0, CustomIds::CRIMSON_STEM_ITEM), "Crimson Stem", new BlockBreakInfo(2, BlockToolType::AXE, 0, 10), TreeType::CRIMSON(), false));
-            $bf->register(new Wood(new BID(CustomIds::WARPED_STEM_BLOCK, 0, CustomIds::WARPED_STEM_ITEM), "Warped Stem", new BlockBreakInfo(2, BlockToolType::AXE, 0, 10), TreeType::WARPED(), false));
-            $bf->register(new Log(new BID(CustomIds::CRIMSON_STRIPPED_STEM_BLOCK, 0, CustomIds::CRIMSON_STRIPPED_STEM_ITEM), "Crimson Stripped Stem", new BlockBreakInfo(2, BlockToolType::AXE, 0, 10), TreeType::CRIMSON(), true));
+            $bf->register(new Planks(new BID(CustomIds::CRIMSON_PLANKS_BLOCK, 0, CustomIds::CRIMSON_PLANKS_ITEM), "Crimson Planks", new BlockBreakInfo(2, BlockToolType::AXE, 0, 3)), true);
+            $bf->register(new Planks(new BID(CustomIds::WARPED_PLANKS_BLOCK, 0, CustomIds::WARPED_PLANKS_ITEM), "Warped Planks", new BlockBreakInfo(2, BlockToolType::AXE, 0, 3)), true);
+            $bf->register(new Wood(new BID(CustomIds::CRIMSON_STEM_BLOCK, 0, CustomIds::CRIMSON_STEM_ITEM), "Crimson Stem", new BlockBreakInfo(2, BlockToolType::AXE, 0, 10), TreeType::CRIMSON(), false), true);
+            $bf->register(new Wood(new BID(CustomIds::WARPED_STEM_BLOCK, 0, CustomIds::WARPED_STEM_ITEM), "Warped Stem", new BlockBreakInfo(2, BlockToolType::AXE, 0, 10), TreeType::WARPED(), false), true);
+            $bf->register(new Log(new BID(CustomIds::CRIMSON_STRIPPED_STEM_BLOCK, 0, CustomIds::CRIMSON_STRIPPED_STEM_ITEM), "Crimson Stripped Stem", new BlockBreakInfo(2, BlockToolType::AXE, 0, 10), TreeType::CRIMSON(), true), true);
             $bf->register(new Log(new BID(CustomIds::WARPED_STRIPPED_STEM_BLOCK, 0, CustomIds::WARPED_STRIPPED_STEM_ITEM), "Warped Stripped Stem", new BlockBreakInfo(2, BlockToolType::AXE, 0, 10), TreeType::WARPED(), true));
 
-            $bf->register(new Hyphae(new BID(CustomIds::CRIMSON_HYPHAE_BLOCK, 0, CustomIds::CRIMSON_HYPHAE_ITEM), "Crimson Hyphae", new BlockBreakInfo(2, BlockToolType::AXE, 0, 10), TreeType::CRIMSON(), false));
+            $bf->register(new Hyphae(new BID(CustomIds::CRIMSON_HYPHAE_BLOCK, 0, CustomIds::CRIMSON_HYPHAE_ITEM), "Crimson Hyphae", new BlockBreakInfo(2, BlockToolType::AXE, 0, 10), TreeType::CRIMSON(), false), true);
             $bf->register(new Hyphae(new BID(CustomIds::WARPED_HYPHAE_BLOCK, 0, CustomIds::WARPED_HYPHAE_ITEM), "Warped Hyphae", new BlockBreakInfo(2, BlockToolType::AXE, 0, 10), TreeType::WARPED(), false));
 
-            $bf->register(new Hyphae(new BID(CustomIds::CRIMSON_STRIPPED_HYPHAE_BLOCK, 0, CustomIds::CRIMSON_STRIPPED_HYPHAE_ITEM), "Crimson Stripped Hyphae", new BlockBreakInfo(2, BlockToolType::AXE, 0, 10), TreeType::CRIMSON(), true));
-            $bf->register(new Hyphae(new BID(CustomIds::WARPED_STRIPPED_HYPHAE_BLOCK, 0, CustomIds::WARPED_STRIPPED_HYPHAE_ITEM), "Warped Stripped Hyphae", new BlockBreakInfo(2, BlockToolType::AXE, 0, 10), TreeType::WARPED(), true));
-            $bf->register(new Door(new BID(CustomIds::CRIMSON_DOOR_BLOCK, 0, CustomIds::CRIMSON_DOOOR_ITEM), "Crimson Door", new BlockBreakInfo(3, BlockToolType::AXE)));
-            $bf->register(new Door(new BID(CustomIds::WARPED_DOOR_BLOCK, 0, CustomIds::WARPED_DOOR_ITEM), "Warped Door", new BlockBreakInfo(3, BlockToolType::AXE)));
-            $bf->register(new Fence(new BID(CustomIds::CRIMSON_FENCE_BLOCK, 0, CustomIds::CRIMSON_FENCE_ITEM), "Crimson Fence", new BlockBreakInfo(2, BlockToolType::AXE, 0, 3)));
-            $bf->register(new Fence(new BID(CustomIds::WARPED_FENCE_BLOCK, 0, CustomIds::WARPED_FENCE_ITEM), "Warped Fence", new BlockBreakInfo(2, BlockToolType::AXE, 0, 3)));
-            $bf->register(new FenceGate(new BID(CustomIds::CRIMSON_FENCE_GATE_BLOCK, 0, CustomIds::CRIMSON_FENCE_GATE_ITEM), "Crimson Fence Gate", new BlockBreakInfo(2, BlockToolType::AXE, 0, 3)));
-            $bf->register(new FenceGate(new BID(CustomIds::WARPED_FENCE_GATE_BLOCK, 0, CustomIds::WARPED_FENCE_GATE_ITEM), "Warped Fence Gate", new BlockBreakInfo(2, BlockToolType::AXE, 0, 3)));
+            $bf->register(new Hyphae(new BID(CustomIds::CRIMSON_STRIPPED_HYPHAE_BLOCK, 0, CustomIds::CRIMSON_STRIPPED_HYPHAE_ITEM), "Crimson Stripped Hyphae", new BlockBreakInfo(2, BlockToolType::AXE, 0, 10), TreeType::CRIMSON(), true), true);
+            $bf->register(new Hyphae(new BID(CustomIds::WARPED_STRIPPED_HYPHAE_BLOCK, 0, CustomIds::WARPED_STRIPPED_HYPHAE_ITEM), "Warped Stripped Hyphae", new BlockBreakInfo(2, BlockToolType::AXE, 0, 10), TreeType::WARPED(), true), true);
+            $bf->register(new Door(new BID(CustomIds::CRIMSON_DOOR_BLOCK, 0, CustomIds::CRIMSON_DOOOR_ITEM), "Crimson Door", new BlockBreakInfo(3, BlockToolType::AXE)), true);
+            $bf->register(new Door(new BID(CustomIds::WARPED_DOOR_BLOCK, 0, CustomIds::WARPED_DOOR_ITEM), "Warped Door", new BlockBreakInfo(3, BlockToolType::AXE)), true);
+            $bf->register(new Fence(new BID(CustomIds::CRIMSON_FENCE_BLOCK, 0, CustomIds::CRIMSON_FENCE_ITEM), "Crimson Fence", new BlockBreakInfo(2, BlockToolType::AXE, 0, 3)), true);
+            $bf->register(new Fence(new BID(CustomIds::WARPED_FENCE_BLOCK, 0, CustomIds::WARPED_FENCE_ITEM), "Warped Fence", new BlockBreakInfo(2, BlockToolType::AXE, 0, 3)), true);
+            $bf->register(new FenceGate(new BID(CustomIds::CRIMSON_FENCE_GATE_BLOCK, 0, CustomIds::CRIMSON_FENCE_GATE_ITEM), "Crimson Fence Gate", new BlockBreakInfo(2, BlockToolType::AXE, 0, 3)), true);
+            $bf->register(new FenceGate(new BID(CustomIds::WARPED_FENCE_GATE_BLOCK, 0, CustomIds::WARPED_FENCE_GATE_ITEM), "Warped Fence Gate", new BlockBreakInfo(2, BlockToolType::AXE, 0, 3)), true);
         }
         if ($cfg->isEnableStairs()) {
             $bf->register(new Stair(new BID(CustomIds::BLACKSTONE_STAIRS_BLOCK, 0, CustomIds::BLACKSTONE_STAIRS_ITEM), "Blackstone Stairs", new BlockBreakInfo(3, BlockToolType::AXE, 0, 6)), true);
             $bf->register(new Stair(new BID(CustomIds::CRIMSON_STAIRS_BLOCK, 0, CustomIds::CRIMSON_STAIRS_ITEM), "Crimson Stairs", new BlockBreakInfo(3, BlockToolType::AXE, 0, 6)), true);
+            $bf->register(new Stair(new BID(CustomIds::POLISHED_BLACKSTONE_STAIRS_BLOCK, 0, CustomIds::POLISHED_BLACKSTONE_STAIRS_ITEM), "Polished Blackstone Stairs", new BlockBreakInfo(3, BlockToolType::AXE, 0, 6)), true);
+            $bf->register(new Stair(new BID(CustomIds::WARPED_STAIRS_BLOCK, 0, CustomIds::WARPED_STAIRS_ITEM), "Warped Stairs", new BlockBreakInfo(3, BlockToolType::AXE, 0, 6)), true);
             $bf->register(new Stair(new BID(CustomIds::POLISHED_BLACKSTONE_BRICK_STAIRS_BLOCK, 0, CustomIds::POLISHED_BLACKSTONE_BRICK_STAIRS_ITEM), "Polished Blackstone Brick Stairs", new BlockBreakInfo(3, BlockToolType::AXE, 0, 6)), true);
             $bf->register(new Stair(new BID(CustomIds::POLISHED_BLACKSTONE_STAIRS_BLOCK, 0, CustomIds::POLISHED_BLACKSTONE_STAIRS_ITEM), "Polished Blackstone Stairs", new BlockBreakInfo(3, BlockToolType::AXE, 0, 6)), true);
             $bf->register(new Stair(new BID(CustomIds::WARPED_STAIRS_BLOCK, 0, CustomIds::WARPED_STAIRS_ITEM), "Warped Stairs", new BlockBreakInfo(3, BlockToolType::AXE, 0, 6)), true);
@@ -291,21 +287,21 @@ class Main extends PluginBase implements Listener
             $factory->register(new FlintAndSteel(new ItemIdentifier(ItemIds::FLINT_AND_STEEL, 0), "Flint and Steel"), true);
         }
         if ($cfg->isEnablePigstep()) {
-            $factory->register(new Record(new ItemIdentifier(CustomIds::RECORD_PIGSTEP, 0), RecordType::DISK_PIGSTEP(), "Pigstep"));
+            $factory->register(new Record(new ItemIdentifier(CustomIds::RECORD_PIGSTEP, 0), RecordType::DISK_PIGSTEP(), "Pigstep"), true);
         }
         if ($cfg->isEnableNetheriteTools()) {
-            $factory->register(new Item(new ItemIdentifier(CustomIds::ITEM_NETHERITE_INGOT, 0), 'Netherite Ingot'));
-            $factory->register(new Item(new ItemIdentifier(CustomIds::ITEM_NETHERITE_SCRAP, 0), 'Netherite Scrap'));
-            $factory->register(new Sword(new ItemIdentifier(CustomIds::ITEM_NETHERITE_SWORD, 0), 'Netherite Sword', ToolTier::NETHERITE()));
-            $factory->register(new Shovel(new ItemIdentifier(CustomIds::ITEM_NETHERITE_SHOVEL, 0), 'Netherite Shovel', ToolTier::NETHERITE()));
-            $factory->register(new Pickaxe(new ItemIdentifier(CustomIds::ITEM_NETHERITE_PICKAXE, 0), 'Netherite Pickaxe', ToolTier::NETHERITE()));
-            $factory->register(new Axe(new ItemIdentifier(CustomIds::ITEM_NETHERITE_AXE, 0), 'Netherite Axe', ToolTier::NETHERITE()));
-            $factory->register(new Hoe(new ItemIdentifier(CustomIds::ITEM_NETHERITE_HOE, 0), 'Netherite Hoe', ToolTier::NETHERITE()));
+            $factory->register(new Item(new ItemIdentifier(CustomIds::ITEM_NETHERITE_INGOT, 0), 'Netherite Ingot'), true);
+            $factory->register(new Item(new ItemIdentifier(CustomIds::ITEM_NETHERITE_SCRAP, 0), 'Netherite Scrap'), true);
+            $factory->register(new Sword(new ItemIdentifier(CustomIds::ITEM_NETHERITE_SWORD, 0), 'Netherite Sword', ToolTier::NETHERITE()), true);
+            $factory->register(new Shovel(new ItemIdentifier(CustomIds::ITEM_NETHERITE_SHOVEL, 0), 'Netherite Shovel', ToolTier::NETHERITE()), true);
+            $factory->register(new Pickaxe(new ItemIdentifier(CustomIds::ITEM_NETHERITE_PICKAXE, 0), 'Netherite Pickaxe', ToolTier::NETHERITE()), true);
+            $factory->register(new Axe(new ItemIdentifier(CustomIds::ITEM_NETHERITE_AXE, 0), 'Netherite Axe', ToolTier::NETHERITE()), true);
+            $factory->register(new Hoe(new ItemIdentifier(CustomIds::ITEM_NETHERITE_HOE, 0), 'Netherite Hoe', ToolTier::NETHERITE()), true);
 
-            $factory->register(new Armor(new ItemIdentifier(CustomIds::NETHERITE_HELMET, 0), 'Netherite Helmet', new ArmorTypeInfo(6, 407, ArmorInventory::SLOT_HEAD)));
-            $factory->register(new Armor(new ItemIdentifier(CustomIds::NETHERITE_CHESTPLATE, 0), 'Netherite Chestplate', new ArmorTypeInfo(3, 592, ArmorInventory::SLOT_CHEST)));
-            $factory->register(new Armor(new ItemIdentifier(CustomIds::NETHERITE_LEGGINGS, 0), 'Netherite Leggings', new ArmorTypeInfo(3, 481, ArmorInventory::SLOT_LEGS)));
-            $factory->register(new Armor(new ItemIdentifier(CustomIds::NETHERITE_BOOTS, 0), 'Netherite Boots', new ArmorTypeInfo(6, 555, ArmorInventory::SLOT_FEET)));
+            $factory->register(new Armor(new ItemIdentifier(CustomIds::NETHERITE_HELMET, 0), 'Netherite Helmet', new ArmorTypeInfo(6, 407, ArmorInventory::SLOT_HEAD)), true);
+            $factory->register(new Armor(new ItemIdentifier(CustomIds::NETHERITE_CHESTPLATE, 0), 'Netherite Chestplate', new ArmorTypeInfo(3, 592, ArmorInventory::SLOT_CHEST)), true);
+            $factory->register(new Armor(new ItemIdentifier(CustomIds::NETHERITE_LEGGINGS, 0), 'Netherite Leggings', new ArmorTypeInfo(3, 481, ArmorInventory::SLOT_LEGS)), true);
+            $factory->register(new Armor(new ItemIdentifier(CustomIds::NETHERITE_BOOTS, 0), 'Netherite Boots', new ArmorTypeInfo(6, 555, ArmorInventory::SLOT_FEET)), true);
         }
     }
 }
