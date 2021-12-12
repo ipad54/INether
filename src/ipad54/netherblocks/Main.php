@@ -34,6 +34,7 @@ use ipad54\netherblocks\blocks\WarpedWartBlock;
 use ipad54\netherblocks\blocks\WeepingVines;
 use ipad54\netherblocks\blocks\Wood;
 use ipad54\netherblocks\items\FlintAndSteel;
+use ipad54\netherblocks\listener\EventListener;
 use ipad54\netherblocks\utils\CustomConfig;
 use ipad54\netherblocks\utils\CustomIds;
 use pocketmine\block\BlockBreakInfo;
@@ -91,6 +92,7 @@ class Main extends PluginBase
 
     protected function onEnable(): void
     { //credits https://github.com/cladevs/VanillaX
+        Server::getInstance()->getPluginManager()->registerEvents(new EventListener(), $this);
         Server::getInstance()->getAsyncPool()->addWorkerStartHook(function (int $worker): void {
             Server::getInstance()->getAsyncPool()->submitTaskToWorker(new class() extends AsyncTask {
 
