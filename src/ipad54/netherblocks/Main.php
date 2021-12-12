@@ -234,8 +234,8 @@ class Main extends PluginBase
 
             $bf->register(new Hyphae(new BID(CustomIds::CRIMSON_STRIPPED_HYPHAE_BLOCK, 0, CustomIds::CRIMSON_STRIPPED_HYPHAE_ITEM), "Crimson Stripped Hyphae", new BlockBreakInfo(2, BlockToolType::AXE, 0, 10), TreeType::CRIMSON(), true), true);
             $bf->register(new Hyphae(new BID(CustomIds::WARPED_STRIPPED_HYPHAE_BLOCK, 0, CustomIds::WARPED_STRIPPED_HYPHAE_ITEM), "Warped Stripped Hyphae", new BlockBreakInfo(2, BlockToolType::AXE, 0, 10), TreeType::WARPED(), true), true);
-            $bf->register(new Door(new BID(CustomIds::CRIMSON_DOOR_BLOCK, 0, CustomIds::CRIMSON_DOOOR_ITEM), "Crimson Door", new BlockBreakInfo(3, BlockToolType::AXE)));
-            $bf->register(new Door(new BID(CustomIds::WARPED_DOOR_BLOCK, 0, CustomIds::WARPED_DOOR_ITEM), "Warped Door", new BlockBreakInfo(3, BlockToolType::AXE)));
+            $bf->register(new Door(new BID(CustomIds::CRIMSON_DOOR_BLOCK, 0, CustomIds::CRIMSON_DOOOR_ITEM), "Crimson Door", new BlockBreakInfo(3, BlockToolType::AXE)), true);
+            $bf->register(new Door(new BID(CustomIds::WARPED_DOOR_BLOCK, 0, CustomIds::WARPED_DOOR_ITEM), "Warped Door", new BlockBreakInfo(3, BlockToolType::AXE)), true);
             $bf->register(new Fence(new BID(CustomIds::CRIMSON_FENCE_BLOCK, 0, CustomIds::CRIMSON_FENCE_ITEM), "Crimson Fence", new BlockBreakInfo(2, BlockToolType::AXE, 0, 3)), true);
             $bf->register(new Fence(new BID(CustomIds::WARPED_FENCE_BLOCK, 0, CustomIds::WARPED_FENCE_ITEM), "Warped Fence", new BlockBreakInfo(2, BlockToolType::AXE, 0, 3)), true);
             $bf->register(new FenceGate(new BID(CustomIds::CRIMSON_FENCE_GATE_BLOCK, 0, CustomIds::CRIMSON_FENCE_GATE_ITEM), "Crimson Fence Gate", new BlockBreakInfo(2, BlockToolType::AXE, 0, 3)), true);
