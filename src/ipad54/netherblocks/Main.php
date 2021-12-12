@@ -190,6 +190,12 @@ class Main extends PluginBase implements Listener
         if ($cfg->isEnableSoulTorch()) {
             $bf->register(new SoulTorch(new BID(CustomIds::SOUL_TORCH_BLOCK, 0, CustomIds::SOUL_TORCH_ITEM), "Soul Torch", BlockBreakInfo::instant()), true);
         }
+        if ($cfg->isEnableCampfire()) {
+            $bf->register(new Campfire(new BID(CustomIds::CAMPFIRE_BLOCK, 0, CustomIds::CAMPFIRE_ITEM), "Campfire", BlockBreakInfo::instant()), true);
+        }
+        if ($cfg->isEnableSoulCampfire()) {
+            $bf->register(new SoulCampfire(new BID(CustomIds::SOUL_CAMPFIRE_BLOCK, 0, CustomIds::SOUL_CAMPFIRE_ITEM), "Soul Campfire", BlockBreakInfo::instant()), true);
+        }
         if ($cfg->isEnableNetherwart()) {
             $bf->register(new NetherWartBlock(new BID(CustomIds::NETHER_WART_BLOCK, 0), "Nether Wart Block", new BlockBreakInfo(1, BlockToolType::HOE, 0, 5)), true);
             $bf->register(new WarpedWartBlock(new BID(CustomIds::WARPED_WART_BLOCK, 0, CustomIds::WARPED_WART_ITEM), "Warped Wart Block", new BlockBreakInfo(1, BlockToolType::HOE, 0, 5)), true);
