@@ -117,6 +117,11 @@ class CustomConfig
         return $this->match("blocks.chain");
     }
 
+    public function isEnableCampfire()
+    {
+        return $this->match("blocks.campfire");
+    }
+
     public function isEnableNetheriteTools()
     {
         return $this->match("items.netherite_tools");

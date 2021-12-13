@@ -135,5 +135,8 @@ final class CustomIds {
     public const WARPED_TRAPDOOR_ITEM = -247;
     public const CRIMSON_TRAPDOOR_BLOCK = 501;
     public const WARPED_TRAPDOOR_BLOCK = 502;
+    public const CAMPFIRE_ITEM = 720;
+    public const SOUL_CAMPFIRE_ITEM = 801;
+    public const SOUL_CAMPFIRE_BLOCK = 545;
 
 }

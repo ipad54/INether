@@ -29,6 +29,8 @@ blocks:
   wood: true
   #All types of nether stairs
   stairs: true
+  #Soul & regular
+  campfire: true
 
 items:
   record_pigstep: true

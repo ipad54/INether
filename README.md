@@ -30,4 +30,4 @@
 - [X] Netherite ingot & scrap
 - [X] Netherite Armor & Tools
 - [ ] Lodestone
-- [ ] Campfire
+- [X] Campfire

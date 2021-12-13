@@ -5,6 +5,7 @@ namespace ipad54\netherblocks;
 
 use ipad54\netherblocks\blocks\Basalt;
 use ipad54\netherblocks\blocks\Blackstone;
+use ipad54\netherblocks\blocks\Campfire;
 use ipad54\netherblocks\blocks\Chain;
 use ipad54\netherblocks\blocks\ChiseledPolishedBlackstone;
 use ipad54\netherblocks\blocks\CryingObsidian;
@@ -22,6 +23,7 @@ use ipad54\netherblocks\blocks\PolishedBlackStone;
 use ipad54\netherblocks\blocks\RespawnAnchor;
 use ipad54\netherblocks\blocks\Roots;
 use ipad54\netherblocks\blocks\Shroomlight;
+use ipad54\netherblocks\blocks\SoulCampfire;
 use ipad54\netherblocks\blocks\SoulFire;
 use ipad54\netherblocks\blocks\SoulLantern;
 use ipad54\netherblocks\blocks\SoulSoil;
@@ -33,6 +35,7 @@ use ipad54\netherblocks\blocks\WarpedNylium;
 use ipad54\netherblocks\blocks\WarpedWartBlock;
 use ipad54\netherblocks\blocks\WeepingVines;
 use ipad54\netherblocks\blocks\Wood;
+use ipad54\netherblocks\tile\Campfire as TileCampfire;
 use ipad54\netherblocks\items\FlintAndSteel;
 use ipad54\netherblocks\listener\EventListener;
 use ipad54\netherblocks\utils\CustomConfig;
@@ -47,9 +50,11 @@ use pocketmine\block\Fence;
 use pocketmine\block\FenceGate;
 use pocketmine\block\Opaque;
 use pocketmine\block\Stair;
+use pocketmine\block\tile\TileFactory;
 use pocketmine\block\utils\RecordType;
 use pocketmine\block\utils\TreeType;
 use pocketmine\block\WoodenTrapdoor;
+use pocketmine\inventory\CreativeInventory;
 use pocketmine\item\ItemBlock;
 use pocketmine\lang\Translatable;
 use pocketmine\inventory\ArmorInventory;
@@ -87,6 +92,7 @@ class Main extends PluginBase
         $this->config = new CustomConfig(new Config($this->getDataFolder() . "config.yml", Config::YAML));
         self::initializeRuntimeIds();
         $this->initBlocks();
+        $this->initTiles();
         $this->initItems();
     }
 
@@ -134,6 +140,7 @@ class Main extends PluginBase
             }
         }
     }
+
 
 
 
@@ -254,9 +261,19 @@ class Main extends PluginBase
             $bf->register(new Stair(new BID(CustomIds::POLISHED_BLACKSTONE_STAIRS_BLOCK, 0, CustomIds::POLISHED_BLACKSTONE_STAIRS_ITEM), "Polished Blackstone Stairs", new BlockBreakInfo(3, BlockToolType::AXE, 0, 6)), true);
             $bf->register(new Stair(new BID(CustomIds::WARPED_STAIRS_BLOCK, 0, CustomIds::WARPED_STAIRS_ITEM), "Warped Stairs", new BlockBreakInfo(3, BlockToolType::AXE, 0, 6)), true);
         }
+        if($cfg->isEnableCampfire()){
+            $bf->register(new Campfire(new BID(Ids::CAMPFIRE, 0, CustomIds::CAMPFIRE_ITEM, TileCampfire::class), "Campfire", new BlockBreakInfo(2, BlockToolType::AXE, 0, 10)));
+            $bf->register(new SoulCampfire(new BID(CustomIds::SOUL_CAMPFIRE_BLOCK, 0, CustomIds::SOUL_CAMPFIRE_ITEM, TileCampfire::class), "Soul Campfire", new BlockBreakInfo(2, BlockToolType::AXE, 0, 10)));
+        }
 
+    }
 
-
+    public function initTiles() : void{
+        $cfg = $this->getCustomConfig();
+        $tf = TileFactory::getInstance();
+        if($cfg->isEnableCampfire()){
+            $tf->register(TileCampfire::class, ["Campfire", "minecraft:campfire"]);
+        }
     }
 
     public function initItems(): void
@@ -290,6 +307,10 @@ class Main extends PluginBase
         if($cfg->isEnableWood()){
             $factory->register(new ItemBlock(new ItemIdentifier(CustomIds::CRIMSON_DOOOR_ITEM, 0), BlockFactory::getInstance()->get(CustomIds::CRIMSON_DOOR_BLOCK, 0)), true);
             $factory->register(new ItemBlock(new ItemIdentifier(CustomIds::WARPED_DOOR_ITEM, 0), BlockFactory::getInstance()->get(CustomIds::WARPED_DOOR_BLOCK, 0)), true);
+        }
+        if($cfg->isEnableCampfire()){
+            $factory->register(new ItemBlock(new ItemIdentifier(CustomIds::CAMPFIRE_ITEM, 0), BlockFactory::getInstance()->get(Ids::CAMPFIRE, 0)), true);
+            $factory->register(new ItemBlock(new ItemIdentifier(CustomIds::SOUL_CAMPFIRE_ITEM, 0), BlockFactory::getInstance()->get(CustomIds::SOUL_CAMPFIRE_BLOCK, 0)), true);
         }
         if ($cfg->isEnableNetheriteTools()) {
             $factory->register(new Item(new ItemIdentifier(CustomIds::ITEM_NETHERITE_INGOT, 0), 'Netherite Ingot'), true);
