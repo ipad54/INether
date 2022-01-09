@@ -2,7 +2,7 @@
 
 <p align="center">
 	<a href="https://vk.com/m.play2018"><img src="https://github.com/ipad54/INether/blob/a7e3458c993aa8918fd70662801c849c14371f6d/image.png"></img></a><br>
-	<b>This plugin adds 95% of 1.16 blocks & items and their functionality</b>
+	<b>This plugin implements the functionality of items & blocks that were added in 1.16</b>
 </p>
 
 ### Implemented blocks
