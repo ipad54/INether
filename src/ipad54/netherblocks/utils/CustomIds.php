@@ -53,7 +53,8 @@ final class CustomIds {
     public const GILDED_BLACKSTONE_BLOCK = 536;
     public const GILDED_BLACKSTONE_ITEM = -281;
     public const CHAIN_BLOCK = 541;
-    public const CHAINT_ITEM = -286;
+    public const CHAIN_BLOCK_ITEM = -286;
+    public const CHAIN_ITEM = 758;
     public const WEEPING_VINES_BLOCK = 486;
     public const WEEPING_VINES_ITEM = -231;
     public const TWISTING_VINES_BLOCK = 542;

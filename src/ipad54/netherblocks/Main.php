@@ -220,7 +220,7 @@ class Main extends PluginBase
             $bf->register(new GildedBlackstone(new BID(CustomIds::GILDED_BLACKSTONE_BLOCK, 0, CustomIds::GILDED_BLACKSTONE_ITEM), "Gilded Blackstone", $blackstoneBreakInfo), true);
         }
         if ($cfg->isEnableChain()) {
-            $bf->register(new Chain(new BID(CustomIds::CHAIN_BLOCK, 0, CustomIds::CHAINT_ITEM), "Chain", new BlockBreakInfo(5, BlockToolType::PICKAXE, ToolTier::WOOD()->getHarvestLevel(), 6)), true);
+            $bf->register(new Chain(new BID(CustomIds::CHAIN_BLOCK, 0, CustomIds::CHAIN_BLOCK_ITEM), "Chain", new BlockBreakInfo(5, BlockToolType::PICKAXE, ToolTier::WOOD()->getHarvestLevel(), 6)), true);
         }
         if ($cfg->isEnableVines()) {
             $bf->register(new TwistingVines(new BID(CustomIds::TWISTING_VINES_BLOCK, 0, CustomIds::TWISTING_VINES_ITEM), "Twisting Vines", BlockBreakInfo::instant()), true);
@@ -311,6 +311,9 @@ class Main extends PluginBase
         if($cfg->isEnableCampfire()){
             $factory->register(new ItemBlock(new ItemIdentifier(CustomIds::CAMPFIRE_ITEM, 0), BlockFactory::getInstance()->get(Ids::CAMPFIRE, 0)), true);
             $factory->register(new ItemBlock(new ItemIdentifier(CustomIds::SOUL_CAMPFIRE_ITEM, 0), BlockFactory::getInstance()->get(CustomIds::SOUL_CAMPFIRE_BLOCK, 0)), true);
+        }
+        if($cfg->isEnableChain()){
+            $factory->register(new ItemBlock(new ItemIdentifier(CustomIds::CHAIN_ITEM, 0), BlockFactory::getInstance()->get(CustomIds::CHAIN_BLOCK, 0)), true);
         }
         if ($cfg->isEnableNetheriteTools()) {
             $factory->register(new Item(new ItemIdentifier(CustomIds::ITEM_NETHERITE_INGOT, 0), 'Netherite Ingot'), true);
