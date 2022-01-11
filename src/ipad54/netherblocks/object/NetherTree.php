@@ -90,7 +90,7 @@ class NetherTree extends Tree
     protected function placeTrunk(int $x, int $y, int $z, Random $random, int $trunkHeight, BlockTransaction $transaction): void
     {
         $transaction->addBlockAt($x, $y, $z, $this->trunkBlock);
-        for ($yy = 0; $yy < $trunkHeight; ++$yy) {
+        for ($yy = 0; $yy <= $trunkHeight; ++$yy) {
             $block = $transaction->fetchBlockAt($x, $y + $yy, $z);
             if ($this->canOverride($block)) {
                 $transaction->addBlockAt($x, $y + $yy, $z, $this->trunkBlock);
