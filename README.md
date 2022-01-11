@@ -1,7 +1,7 @@
 # INether
 
 <p align="center">
-	<a href="https://vk.com/m.play2018"><img src="https://github.com/ipad54/INether/blob/a7e3458c993aa8918fd70662801c849c14371f6d/icon.png"></img></a><br>
+	<a href="https://vk.com/m.play2018"><img src="https://github.com/ipad54/INether/blob/6cfb5ea0f4fdac553b6aaa6df4bce804ad0f7ae0/icon.png"></img></a><br>
 	<b>This plugin implements the functionality of items & blocks that were added in 1.16</b>
 </p>
 
