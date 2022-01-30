@@ -49,10 +49,12 @@ use pocketmine\block\Fence;
 use pocketmine\block\FenceGate;
 use pocketmine\block\Opaque;
 use pocketmine\block\Stair;
+use pocketmine\block\StonePressurePlate;
 use pocketmine\block\tile\Sign as TileSign;
 use pocketmine\block\tile\TileFactory;
 use pocketmine\block\utils\RecordType;
 use pocketmine\block\utils\TreeType;
+use pocketmine\block\Wall;
 use pocketmine\block\WoodenPressurePlate;
 use pocketmine\block\WoodenTrapdoor;
 use pocketmine\inventory\CreativeInventory;
@@ -218,6 +220,15 @@ class Main extends PluginBase
 			$this->registerBlock(new PolishedBlackStone(new BID(CustomIds::POLISHED_BLACKSTONE_BLOCK, 0, CustomIds::POLISHED_BLACKSTONE_ITEM), "Polished Blackstone", $blackstoneBreakInfo));
 			$this->registerBlock(new ChiseledPolishedBlackstone(new BID(CustomIds::CHISELED_POLISHED_BLACKSTONE_BLOCK, 0, CustomIds::CHISELED_POLISHED_BLACKSTONE_ITEM), "Chiseled Polished Blackstone", $blackstoneBreakInfo));
 			$this->registerBlock(new GildedBlackstone(new BID(CustomIds::GILDED_BLACKSTONE_BLOCK, 0, CustomIds::GILDED_BLACKSTONE_ITEM), "Gilded Blackstone", $blackstoneBreakInfo));
+			$this->registerBlock(new Opaque(new BID(CustomIds::POLISHED_BLACKSTONE_BRICKS_BLOCK, 0, CustomIds::POLISHED_BLACKSTONE_BRICKS_ITEM), "Polished Blackstone Bricks", $blackstoneBreakInfo));
+			$this->registerBlock(new Opaque(new BID(CustomIds::CRACKED_POLISHED_BLACKSTONE_BRICKS_BLOCK, 0, CustomIds::CRACKED_POLISHED_BLACKSTONE_BRICKS_ITEM), "Cracked Polished Blackstone Bricks", $blackstoneBreakInfo));
+
+			$this->registerBlock(new StonePressurePlate(new BID(CustomIds::POLISHED_BLACKSTONE_PRESSURE_PLATE_BLOCK, 0, CustomIds::POLISHED_BLACKSTONE_PRESSURE_PLATE_ITEM), "Polished Blackstone Pressure Plate", new BlockBreakInfo(0.5, BlockToolType::PICKAXE, ToolTier::WOOD()->getHarvestLevel())));
+
+			$wallBreakInfo = new BlockBreakInfo(2.0, BlockToolType::PICKAXE, ToolTier::WOOD()->getHarvestLevel(), 30.0);
+			$this->registerBlock(new Wall(new BID(CustomIds::BLACKSTONE_WALL_BLOCK, 0, CustomIds::BLACKSTONE_WALL_ITEM), "Blackstone Wall", $wallBreakInfo));
+			$this->registerBlock(new Wall(new BID(CustomIds::POLISHED_BLACKSTONE_WALL_BLOCK, 0, CustomIds::POLISHED_BLACKSTONE_WALL_ITEM), "Polished Blackstone Wall", $wallBreakInfo));
+			$this->registerBlock(new Wall(new BID(CustomIds::POLISHED_BLACKSTONE_BRICK_WALL_BLOCK, 0, CustomIds::POLISHED_BLACKSTONE_BRICK_WALL_ITEM), "Polished Blackstone Brick Wall", $wallBreakInfo));
 		}
 		if ($cfg->isEnableChain()) {
 			$this->registerBlock(new Chain(new BID(CustomIds::CHAIN_BLOCK, 0, CustomIds::CHAIN_BLOCK_ITEM), "Chain", new BlockBreakInfo(5, BlockToolType::PICKAXE, ToolTier::WOOD()->getHarvestLevel(), 6)), false, false);
