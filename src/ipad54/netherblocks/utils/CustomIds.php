@@ -88,8 +88,8 @@ final class CustomIds {
     public const CRIMSON_FLOOR_SIGN_ITEM = -250;
     public const WARPED_FLOOR_SIGN_BLOCK = 506;
     public const WARPED_FLOOR_SIGN_ITEM = -251;
-    public const CRIMSON_SIGN = 613;
-    public const WARPED_SIGN = 614;
+    public const CRIMSON_SIGN = 753;
+    public const WARPED_SIGN = 754;
     public const CRIMSON_ROOTS_BLOCK = 478;
     public const WARPED_ROOTS_BLOCK = 479;
     public const CRIMSON_ROOTS_ITEM = -223;
@@ -139,5 +139,7 @@ final class CustomIds {
     public const CAMPFIRE_ITEM = 720;
     public const SOUL_CAMPFIRE_ITEM = 801;
     public const SOUL_CAMPFIRE_BLOCK = 545;
+    public const CRIMSON_PRESSURE_PLATE_BLOCK = 517;
+    public const WARPED_PRESSURE_PLATE_BLOCK = 518;
 
 }
