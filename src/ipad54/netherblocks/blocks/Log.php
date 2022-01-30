@@ -9,7 +9,7 @@ class Log extends Wood {
     use PillarRotationInMetadataTrait;
 
     protected function getAxisMetaShift() : int{
-        return $this->isStripped() ? 0 : 2;
+        return 0;
     }
 
 }

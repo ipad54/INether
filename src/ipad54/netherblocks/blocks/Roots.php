@@ -26,4 +26,9 @@ class Roots extends Flowable {
             $this->position->getWorld()->useBreakOn($this->position);
         }
     }
+
+    public function canBeReplaced(): bool
+	{
+		return true;
+	}
 }

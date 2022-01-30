@@ -38,4 +38,9 @@ class Basalt extends Opaque {
     {
         return $this->facing;
     }
+
+    public function readStateFromData(int $id, int $stateMeta): void
+	{
+		$this->facing = $stateMeta;
+	}
 }

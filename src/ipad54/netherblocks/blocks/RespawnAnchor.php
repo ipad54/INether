@@ -65,6 +65,7 @@ class RespawnAnchor extends Opaque
     private function explode(): void
     {
         $explosion = new Explosion($this->position, 5, $this);
+
         $explosion->explodeA();
         $explosion->explodeB();
     }
