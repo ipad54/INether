@@ -153,5 +153,26 @@ final class CustomIds {
     public const POLISHED_BLACKSTONE_BRICKS_ITEM = -274;
     public const CRACKED_POLISHED_BLACKSTONE_BRICKS_BLOCK = 535;
     public const CRACKED_POLISHED_BLACKSTONE_BRICKS_ITEM = -280;
+    public const CRIMSON_SLAB_BLOCK = 519;
+    public const CRIMSON_SLAB_ITEM = -264;
+    public const CRIMSON_DOUBLE_SLAB = 521;
+    public const WARPED_SLAB_BLOCK = 520;
+    public const WARPED_SLAB_ITEM = -265;
+    public const WARPED_DOUBLE_SLAB = 522;
+    public const BLACKSTONE_SLAB_BLOCK = 537;
+    public const BLACKSTONE_SLAB_ITEM = -282;
+    public const BLACKSTONE_DOUBLE_SLAB = 538;
+    public const POLISHED_BLACKSTONE_SLAB_BLOCK = 548;
+    public const POLISHED_BLACKSTONE_SLAB_ITEM = -293;
+    public const POLISHED_BLACKSTONE_DOUBLE_SLAB = 549;
+    public const POLISHED_BLACKSTONE_BRICK_SLAB_BLOCK = 539;
+    public const POLISHED_BLACKSTONE_BRICK_SLAB_ITEM = -284;
+    public const POLISHED_BLACKSTONE_BRICK_DOUBLE_SLAB = 540;
+    public const CRIMSON_BUTTON_BLOCK = 515;
+    public const CRIMSON_BUTTON_ITEM = -260;
+    public const WARPED_BUTTON_BLOCK = 516;
+    public const WARPED_BUTTON_ITEM = -261;
+    public const POLISHED_BLACKSTONE_BUTTON_BLOCK = 551;
+    public const POLISHED_BLACKSTONE_BUTTON_ITEM = -296;
 
 }

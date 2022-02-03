@@ -4,6 +4,7 @@ namespace ipad54\netherblocks;
 
 use ipad54\netherblocks\blocks\Basalt;
 use ipad54\netherblocks\blocks\Blackstone;
+use ipad54\netherblocks\blocks\BlackstoneButton;
 use ipad54\netherblocks\blocks\Campfire;
 use ipad54\netherblocks\blocks\Chain;
 use ipad54\netherblocks\blocks\ChiseledPolishedBlackstone;
@@ -21,6 +22,7 @@ use ipad54\netherblocks\blocks\PolishedBlackStone;
 use ipad54\netherblocks\blocks\RespawnAnchor;
 use ipad54\netherblocks\blocks\Roots;
 use ipad54\netherblocks\blocks\Shroomlight;
+use ipad54\netherblocks\blocks\Slab;
 use ipad54\netherblocks\blocks\SoulCampfire;
 use ipad54\netherblocks\blocks\SoulFire;
 use ipad54\netherblocks\blocks\SoulLantern;
@@ -33,6 +35,7 @@ use ipad54\netherblocks\blocks\WarpedFungus;
 use ipad54\netherblocks\blocks\WarpedNylium;
 use ipad54\netherblocks\blocks\WarpedWartBlock;
 use ipad54\netherblocks\blocks\WeepingVines;
+use ipad54\netherblocks\blocks\WoodenButton;
 use ipad54\netherblocks\tile\Campfire as TileCampfire;
 use ipad54\netherblocks\items\FlintAndSteel;
 use ipad54\netherblocks\listener\EventListener;
@@ -41,6 +44,8 @@ use ipad54\netherblocks\utils\CustomIds;
 use pocketmine\block\Block;
 use pocketmine\block\BlockBreakInfo;
 use pocketmine\block\BlockFactory;
+use pocketmine\block\BlockIdentifierFlattened;
+use pocketmine\block\BlockIdentifierFlattened as BIDFlattened;
 use pocketmine\block\BlockLegacyIds as Ids;
 use pocketmine\block\BlockIdentifier as BID;
 use pocketmine\block\BlockToolType;
@@ -53,6 +58,7 @@ use pocketmine\block\StonePressurePlate;
 use pocketmine\block\tile\Sign as TileSign;
 use pocketmine\block\tile\TileFactory;
 use pocketmine\block\utils\RecordType;
+use pocketmine\block\utils\SlabType;
 use pocketmine\block\utils\TreeType;
 use pocketmine\block\Wall;
 use pocketmine\block\WoodenPressurePlate;
@@ -223,6 +229,10 @@ class Main extends PluginBase
 			$this->registerBlock(new Opaque(new BID(CustomIds::POLISHED_BLACKSTONE_BRICKS_BLOCK, 0, CustomIds::POLISHED_BLACKSTONE_BRICKS_ITEM), "Polished Blackstone Bricks", $blackstoneBreakInfo));
 			$this->registerBlock(new Opaque(new BID(CustomIds::CRACKED_POLISHED_BLACKSTONE_BRICKS_BLOCK, 0, CustomIds::CRACKED_POLISHED_BLACKSTONE_BRICKS_ITEM), "Cracked Polished Blackstone Bricks", $blackstoneBreakInfo));
 
+			$this->registerSlab(new Slab(new BIDFlattened(CustomIds::BLACKSTONE_SLAB_BLOCK, [CustomIds::BLACKSTONE_DOUBLE_SLAB], 0, CustomIds::BLACKSTONE_SLAB_ITEM), "Blackstone Slab", $blackstoneBreakInfo));
+			$this->registerSlab(new Slab(new BIDFlattened(CustomIds::POLISHED_BLACKSTONE_SLAB_BLOCK, [CustomIds::POLISHED_BLACKSTONE_DOUBLE_SLAB], 0, CustomIds::POLISHED_BLACKSTONE_SLAB_ITEM), "Polished Blackstone Slab", $blackstoneBreakInfo));
+			$this->registerSlab(new Slab(new BIDFlattened(CustomIds::POLISHED_BLACKSTONE_BRICK_SLAB_BLOCK, [CustomIds::POLISHED_BLACKSTONE_BRICK_DOUBLE_SLAB], 0, CustomIds::POLISHED_BLACKSTONE_BRICK_SLAB_ITEM), "Polished Blackstone Brick Slab", $blackstoneBreakInfo));
+
 			$this->registerBlock(new StonePressurePlate(new BID(CustomIds::POLISHED_BLACKSTONE_PRESSURE_PLATE_BLOCK, 0, CustomIds::POLISHED_BLACKSTONE_PRESSURE_PLATE_ITEM), "Polished Blackstone Pressure Plate", new BlockBreakInfo(0.5, BlockToolType::PICKAXE, ToolTier::WOOD()->getHarvestLevel())));
 
 			$wallBreakInfo = new BlockBreakInfo(2.0, BlockToolType::PICKAXE, ToolTier::WOOD()->getHarvestLevel(), 30.0);
@@ -246,6 +256,10 @@ class Main extends PluginBase
 
 			$this->registerBlock(new Planks(new BID(CustomIds::CRIMSON_PLANKS_BLOCK, 0, CustomIds::CRIMSON_PLANKS_ITEM), "Crimson Planks", $planksBreakInfo));
 			$this->registerBlock(new Planks(new BID(CustomIds::WARPED_PLANKS_BLOCK, 0, CustomIds::WARPED_PLANKS_ITEM), "Warped Planks", $planksBreakInfo));
+
+			$this->registerSlab(new Slab(new BIDFlattened(CustomIds::CRIMSON_SLAB_BLOCK, [CustomIds::CRIMSON_DOUBLE_SLAB], 0, CustomIds::CRIMSON_SLAB_ITEM), "Crimson Slab", $planksBreakInfo));
+			$this->registerSlab(new Slab(new BIDFlattened(CustomIds::WARPED_SLAB_BLOCK, [CustomIds::WARPED_DOUBLE_SLAB], 0, CustomIds::WARPED_SLAB_ITEM), "Warped Slab", $planksBreakInfo));
+
 			$this->registerBlock(new Log(new BID(CustomIds::CRIMSON_STEM_BLOCK, 0, CustomIds::CRIMSON_STEM_ITEM), "Crimson Stem", new BlockBreakInfo(2, BlockToolType::AXE, 0, 10), TreeType::CRIMSON(), false));
 			$this->registerBlock(new Log(new BID(CustomIds::WARPED_STEM_BLOCK, 0, CustomIds::WARPED_STEM_ITEM), "Warped Stem", new BlockBreakInfo(2, BlockToolType::AXE, 0, 10), TreeType::WARPED(), false));
 			$this->registerBlock(new Log(new BID(CustomIds::CRIMSON_STRIPPED_STEM_BLOCK, 0, CustomIds::CRIMSON_STRIPPED_STEM_ITEM), "Crimson Stripped Stem", new BlockBreakInfo(2, BlockToolType::AXE, 0, 10), TreeType::CRIMSON(), true));
@@ -379,6 +393,14 @@ class Main extends PluginBase
 			$name = strtolower($item->getName());
 			$name = str_replace(" ", "_", $name);
 			StringToItemParser::getInstance()->register($name, fn() => $item);
+		}
+	}
+
+	private function registerSlab(Slab $slab) : void{
+		$this->registerBlock($slab);
+		$identifierFlattened = $slab->getIdInfo();
+		if($identifierFlattened instanceof BIDFlattened){
+			BlockFactory::getInstance()->remap($identifierFlattened->getSecondId(), $identifierFlattened->getVariant() | 0x1, $slab->setSlabType(SlabType::DOUBLE()));
 		}
 	}
 }
