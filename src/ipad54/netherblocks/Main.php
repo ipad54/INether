@@ -4,7 +4,6 @@ namespace ipad54\netherblocks;
 
 use ipad54\netherblocks\blocks\Basalt;
 use ipad54\netherblocks\blocks\Blackstone;
-use ipad54\netherblocks\blocks\BlackstoneButton;
 use ipad54\netherblocks\blocks\Campfire;
 use ipad54\netherblocks\blocks\Chain;
 use ipad54\netherblocks\blocks\ChiseledPolishedBlackstone;
@@ -19,6 +18,7 @@ use ipad54\netherblocks\blocks\Nylium;
 use ipad54\netherblocks\blocks\Planks;
 use ipad54\netherblocks\blocks\PolishedBasalt;
 use ipad54\netherblocks\blocks\PolishedBlackStone;
+use ipad54\netherblocks\blocks\PolishedBlackstoneButton;
 use ipad54\netherblocks\blocks\RespawnAnchor;
 use ipad54\netherblocks\blocks\Roots;
 use ipad54\netherblocks\blocks\Shroomlight;
@@ -44,7 +44,6 @@ use ipad54\netherblocks\utils\CustomIds;
 use pocketmine\block\Block;
 use pocketmine\block\BlockBreakInfo;
 use pocketmine\block\BlockFactory;
-use pocketmine\block\BlockIdentifierFlattened;
 use pocketmine\block\BlockIdentifierFlattened as BIDFlattened;
 use pocketmine\block\BlockLegacyIds as Ids;
 use pocketmine\block\BlockIdentifier as BID;
@@ -235,6 +234,7 @@ class Main extends PluginBase
 
 			$this->registerBlock(new StonePressurePlate(new BID(CustomIds::POLISHED_BLACKSTONE_PRESSURE_PLATE_BLOCK, 0, CustomIds::POLISHED_BLACKSTONE_PRESSURE_PLATE_ITEM), "Polished Blackstone Pressure Plate", new BlockBreakInfo(0.5, BlockToolType::PICKAXE, ToolTier::WOOD()->getHarvestLevel())));
 
+			$this->registerBlock(new PolishedBlackstoneButton(new BID(CustomIds::POLISHED_BLACKSTONE_BUTTON_BLOCK, 0, CustomIds::POLISHED_BLACKSTONE_BUTTON_ITEM), "Polished Blackstone Button", new BlockBreakInfo(0.5, BlockToolType::PICKAXE, ToolTier::WOOD()->getHarvestLevel())));
 			$wallBreakInfo = new BlockBreakInfo(2.0, BlockToolType::PICKAXE, ToolTier::WOOD()->getHarvestLevel(), 30.0);
 			$this->registerBlock(new Wall(new BID(CustomIds::BLACKSTONE_WALL_BLOCK, 0, CustomIds::BLACKSTONE_WALL_ITEM), "Blackstone Wall", $wallBreakInfo));
 			$this->registerBlock(new Wall(new BID(CustomIds::POLISHED_BLACKSTONE_WALL_BLOCK, 0, CustomIds::POLISHED_BLACKSTONE_WALL_ITEM), "Polished Blackstone Wall", $wallBreakInfo));
@@ -284,6 +284,10 @@ class Main extends PluginBase
 			$this->registerBlock(new WallSign(new BID(CustomIds::CRIMSON_WALL_SIGN_BLOCK, 0, CustomIds::CRIMSON_WALL_SIGN_ITEM, TileSign::class), "Crimson Wall Sign", $signBreakInfo), true, false);
 			$this->registerBlock(new FloorSign(new BID(CustomIds::WARPED_FLOOR_SIGN_BLOCK, 0, CustomIds::WARPED_FLOOR_SIGN_ITEM, TileSign::class), "Warped Floor Sign", $signBreakInfo), true, false);
 			$this->registerBlock(new WallSign(new BID(CustomIds::WARPED_WALL_SIGN_BLOCK, 0, CustomIds::WARPED_WALL_SIGN_ITEM, TileSign::class), "Warped Wall Sign", $signBreakInfo), true, false);
+
+			$woodenButtonBreakInfo = new BlockBreakInfo(0.5, BlockToolType::AXE);
+			$this->registerBlock(new WoodenButton(new BID(CustomIds::CRIMSON_BUTTON_BLOCK, 0, CustomIds::CRIMSON_BUTTON_ITEM), "Crimson Button", $woodenButtonBreakInfo));
+			$this->registerBlock(new WoodenButton(new BID(CustomIds::WARPED_BUTTON_BLOCK, 0, CustomIds::WARPED_BUTTON_ITEM), "Warped Button", $woodenButtonBreakInfo));
 
 			$pressurePlateBreakInfo = new BlockBreakInfo(0.5, BlockToolType::AXE);
 			$this->registerBlock(new WoodenPressurePlate(new BID(CustomIds::CRIMSON_PRESSURE_PLATE_BLOCK, 0), "Crimson Pressure Plate", $pressurePlateBreakInfo));
