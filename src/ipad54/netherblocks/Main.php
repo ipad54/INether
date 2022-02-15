@@ -318,29 +318,20 @@ class Main extends PluginBase
 
 	public function initItems(): void
 	{
-		$class = new \ReflectionClass(ToolTier::class);
-		$register = $class->getMethod('register');
-		$register->setAccessible(true);
-		$constructor = $class->getConstructor();
-		$constructor->setAccessible(true);
-		$instance = $class->newInstanceWithoutConstructor();
-		$constructor->invoke($instance, 'netherite', 6, 2031, 9, 10);
-		$register->invoke(null, $instance);
-
-		$class = new \ReflectionClass(RecordType::class);
-		$register = $class->getMethod('register');
-		$register->setAccessible(true);
-		$constructor = $class->getConstructor();
-		$constructor->setAccessible(true);
-		$instance = $class->newInstanceWithoutConstructor();
-		$constructor->invoke($instance, 'disk_pigstep', 'Lena Raine - Pigstep', CustomIds::RECORD_PIGSTEP_SOUND_ID, new Translatable('item.record_pigstep.desc', []));
-		$register->invoke(null, $instance);
-
 		$cfg = $this->getCustomConfig();
 		if ($cfg->isEnabledSoulSoil()) {
 			$this->registerItem(new FlintAndSteel(new ItemIdentifier(ItemIds::FLINT_AND_STEEL, 0), "Flint and Steel"), false);
 		}
 		if ($cfg->isEnablePigstep()) {
+			$class = new \ReflectionClass(RecordType::class);
+			$register = $class->getMethod('register');
+			$register->setAccessible(true);
+			$constructor = $class->getConstructor();
+			$constructor->setAccessible(true);
+			$instance = $class->newInstanceWithoutConstructor();
+			$constructor->invoke($instance, 'disk_pigstep', 'Lena Raine - Pigstep', CustomIds::RECORD_PIGSTEP_SOUND_ID, new Translatable('item.record_pigstep.desc', []));
+			$register->invoke(null, $instance);
+			
 			$this->registerItem(new Record(new ItemIdentifier(CustomIds::RECORD_PIGSTEP, 0), RecordType::DISK_PIGSTEP(), "Record Pigstep"));
 		}
 		if ($cfg->isEnableWood()) {
@@ -359,6 +350,15 @@ class Main extends PluginBase
 			$this->registerItem(new ItemBlock(new ItemIdentifier(CustomIds::CHAIN_ITEM, 0), BlockFactory::getInstance()->get(CustomIds::CHAIN_BLOCK, 0)));
 		}
 		if ($cfg->isEnableNetheriteTools()) {
+			$class = new \ReflectionClass(ToolTier::class);
+			$register = $class->getMethod('register');
+			$register->setAccessible(true);
+			$constructor = $class->getConstructor();
+			$constructor->setAccessible(true);
+			$instance = $class->newInstanceWithoutConstructor();
+			$constructor->invoke($instance, 'netherite', 6, 2031, 9, 10);
+			$register->invoke(null, $instance);
+			
 			$this->registerItem(new Item(new ItemIdentifier(CustomIds::ITEM_NETHERITE_INGOT, 0), 'Netherite Ingot'));
 			$this->registerItem(new Item(new ItemIdentifier(CustomIds::ITEM_NETHERITE_SCRAP, 0), 'Netherite Scrap'));
 			$this->registerItem(new Sword(new ItemIdentifier(CustomIds::ITEM_NETHERITE_SWORD, 0), 'Netherite Sword', ToolTier::NETHERITE()));
