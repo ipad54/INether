@@ -67,6 +67,7 @@ use pocketmine\inventory\CreativeInventory;
 use pocketmine\item\ItemBlock;
 use pocketmine\item\ItemBlockWallOrFloor;
 use pocketmine\item\StringToItemParser;
+use pocketmine\item\VanillaItems;
 use pocketmine\lang\Translatable;
 use pocketmine\inventory\ArmorInventory;
 use pocketmine\item\Armor;
@@ -272,8 +273,8 @@ class Main extends PluginBase
 
 			$this->registerBlock(new Hyphae(new BID(CustomIds::CRIMSON_STRIPPED_HYPHAE_BLOCK, 0, CustomIds::CRIMSON_STRIPPED_HYPHAE_ITEM), "Crimson Stripped Hyphae", new BlockBreakInfo(2, BlockToolType::AXE, 0, 10), TreeType::CRIMSON(), true));
 			$this->registerBlock(new Hyphae(new BID(CustomIds::WARPED_STRIPPED_HYPHAE_BLOCK, 0, CustomIds::WARPED_STRIPPED_HYPHAE_ITEM), "Warped Stripped Hyphae", new BlockBreakInfo(2, BlockToolType::AXE, 0, 10), TreeType::WARPED(), true));
-			$this->registerBlock(new Door(new BID(CustomIds::CRIMSON_DOOR_BLOCK, 0, CustomIds::CRIMSON_DOOR_ITEM), "Crimson Door", new BlockBreakInfo(3, BlockToolType::AXE)), false);
-			$this->registerBlock(new Door(new BID(CustomIds::WARPED_DOOR_BLOCK, 0, CustomIds::WARPED_DOOR_ITEM), "Warped Door", new BlockBreakInfo(3, BlockToolType::AXE)), false);
+			//$this->registerBlock(new Door(new BID(CustomIds::CRIMSON_DOOR_BLOCK, 0, CustomIds::CRIMSON_DOOR_ITEM), "Crimson Door", new BlockBreakInfo(3, BlockToolType::AXE)), false);
+			//$this->registerBlock(new Door(new BID(CustomIds::WARPED_DOOR_BLOCK, 0, CustomIds::WARPED_DOOR_ITEM), "Warped Door", new BlockBreakInfo(3, BlockToolType::AXE)), false);
 			$this->registerBlock(new Fence(new BID(CustomIds::CRIMSON_FENCE_BLOCK, 0, CustomIds::CRIMSON_FENCE_ITEM), "Crimson Fence", new BlockBreakInfo(2, BlockToolType::AXE, 0, 3)));
 			$this->registerBlock(new Fence(new BID(CustomIds::WARPED_FENCE_BLOCK, 0, CustomIds::WARPED_FENCE_ITEM), "Warped Fence", new BlockBreakInfo(2, BlockToolType::AXE, 0, 3)));
 			$this->registerBlock(new FenceGate(new BID(CustomIds::CRIMSON_FENCE_GATE_BLOCK, 0, CustomIds::CRIMSON_FENCE_GATE_ITEM), "Crimson Fence Gate", new BlockBreakInfo(2, BlockToolType::AXE, 0, 3)));
@@ -282,13 +283,13 @@ class Main extends PluginBase
 			$this->registerBlock(new WoodenTrapdoor(new BID(CustomIds::WARPED_TRAPDOOR_BLOCK, 0, CustomIds::WARPED_TRAPDOOR_ITEM), "Warped Trapdoor", new BlockBreakInfo(3, BlockToolType::AXE, 0, 15)));
 
 			$signBreakInfo = new BlockBreakInfo(1.0, BlockToolType::AXE);
-            $this->registerBlock(new FloorSign(new BID(CustomIds::CRIMSON_FLOOR_SIGN_BLOCK, 0, CustomIds::CRIMSON_SIGN_ITEM, TileSign::class), "Crimson Floor Sign", $signBreakInfo), true, false);
-            $this->registerBlock(new WallSign(new BID(CustomIds::CRIMSON_WALL_SIGN_BLOCK, 0, CustomIds::CRIMSON_SIGN_ITEM, TileSign::class), "Crimson Wall Sign", $signBreakInfo), true, false);
-            $this->registerBlock(new FloorSign(new BID(CustomIds::WARPED_FLOOR_SIGN_BLOCK, 0, CustomIds::WARPED_SIGN_ITEM, TileSign::class), "Warped Floor Sign", $signBreakInfo), true, false);
-            $this->registerBlock(new WallSign(new BID(CustomIds::WARPED_WALL_SIGN_BLOCK, 0, CustomIds::WARPED_SIGN_ITEM, TileSign::class), "Warped Wall Sign", $signBreakInfo), true, false);
+            $this->registerBlock(new FloorSign(new BID(CustomIds::CRIMSON_STANDING_SIGN, 0, CustomIds::CRIMSON_SIGN_ITEM, TileSign::class), "Crimson Floor Sign", $signBreakInfo), true, false);
+            $this->registerBlock(new WallSign(new BID(CustomIds::CRIMSON_WALL_SIGN, 0, CustomIds::CRIMSON_SIGN_ITEM, TileSign::class), "Crimson Wall Sign", $signBreakInfo), true, false);
+            $this->registerBlock(new FloorSign(new BID(CustomIds::WARPED_STANDING_SIGN, 0, CustomIds::WARPED_SIGN_ITEM, TileSign::class), "Warped Floor Sign", $signBreakInfo), true, false);
+            $this->registerBlock(new WallSign(new BID(CustomIds::WARPED_WALL_SIGN, 0, CustomIds::WARPED_SIGN_ITEM, TileSign::class), "Warped Wall Sign", $signBreakInfo), true, false);
             $this->registerBlock(new Door(new BID(CustomIds::CRIMSON_DOOR_BLOCK, 0, CustomIds::CRIMSON_DOOR_ITEM), "Crimson Door", new BlockBreakInfo(3, BlockToolType::AXE)), false);
             $this->registerBlock(new Door(new BID(CustomIds::WARPED_DOOR_BLOCK, 0, CustomIds::WARPED_DOOR_ITEM), "Warped Door", new BlockBreakInfo(3, BlockToolType::AXE)), false);
-			$woodenButtonBreakInfo = new BlockBreakInfo(0.5, BlockToolType::AXE);
+            $woodenButtonBreakInfo = new BlockBreakInfo(0.5, BlockToolType::AXE);
 			$this->registerBlock(new WoodenButton(new BID(CustomIds::CRIMSON_BUTTON_BLOCK, 0, CustomIds::CRIMSON_BUTTON_ITEM), "Crimson Button", $woodenButtonBreakInfo));
 			$this->registerBlock(new WoodenButton(new BID(CustomIds::WARPED_BUTTON_BLOCK, 0, CustomIds::WARPED_BUTTON_ITEM), "Warped Button", $woodenButtonBreakInfo));
 
@@ -338,14 +339,14 @@ class Main extends PluginBase
 			$this->registerItem(new Record(new ItemIdentifier(CustomIds::RECORD_PIGSTEP, 0), RecordType::DISK_PIGSTEP(), "Record Pigstep"));
 		}
 		if ($cfg->isEnableWood()) {
-			$this->registerItem(new ItemBlock(new ItemIdentifier(CustomIds::CRIMSON_DOOR_ITEM, 0), BlockFactory::getInstance()->get(CustomIds::CRIMSON_DOOR_BLOCK, 0)));
+            $this->registeritem(new ItemBlockWallOrFloor(new ItemIdentifier(CustomIds::CRIMSON_SIGN_ITEM, 0),BlockFactory::getInstance()->get(CustomIds::CRIMSON_STANDING_SIGN, 0), BlockFactory::getInstance()->get(CustomIds::CRIMSON_WALL_SIGN, 0)), false);
+            $this->registeritem(new ItemBlockWallOrFloor(new ItemIdentifier(CustomIds::WARPED_SIGN_ITEM, 0), BlockFactory::getInstance()->get(CustomIds::WARPED_STANDING_SIGN, 0), BlockFactory::getInstance()->get(CustomIds::WARPED_WALL_SIGN, 0)), false);
+            $this->registerItem(new ItemBlock(new ItemIdentifier(CustomIds::CRIMSON_DOOR_ITEM, 0), BlockFactory::getInstance()->get(CustomIds::CRIMSON_DOOR_BLOCK, 0)));
 			$this->registerItem(new ItemBlock(new ItemIdentifier(CustomIds::WARPED_DOOR_ITEM, 0), BlockFactory::getInstance()->get(CustomIds::WARPED_DOOR_BLOCK, 0)));
-            $this->registeritem(new ItemBlockWallOrFloor(new ItemIdentifier(CustomIds::CRIMSON_SIGN_ITEM, 0),BlockFactory::getInstance()->get(CustomIds::CRIMSON_FLOOR_SIGN_BLOCK, 0), BlockFactory::getInstance()->get(CustomIds::CRIMSON_WALL_SIGN_BLOCK, 0)));
-            $this->registeritem(new ItemBlockWallOrFloor(new ItemIdentifier(CustomIds::WARPED_SIGN_ITEM, 0), BlockFactory::getInstance()->get(CustomIds::WARPED_FLOOR_SIGN_BLOCK, 0), BlockFactory::getInstance()->get(CustomIds::WARPED_WALL_SIGN_BLOCK, 0)));
-            CreativeInventory::getInstance()->add(ItemFactory::getInstance()->get(CustomIds::WARPED_SIGN_ITEM));
-            CreativeInventory::getInstance()->add(ItemFactory::getInstance()->get(CustomIds::CRIMSON_SIGN_ITEM));
-            CreativeInventory::getInstance()->add(ItemFactory::getInstance()->get(CustomIds::CRIMSON_DOOR_ITEM));
-            CreativeInventory::getInstance()->add(ItemFactory::getInstance()->get(CustomIds::WARPED_DOOR_ITEM));
+            //CreativeInventory::getInstance()->add(ItemFactory::getInstance()->get(CustomIds::WARPED_SIGN_ITEM));
+            //CreativeInventory::getInstance()->add(ItemFactory::getInstance()->get(CustomIds::CRIMSON_SIGN_ITEM));
+            //CreativeInventory::getInstance()->add(ItemFactory::getInstance()->get(CustomIds::CRIMSON_DOOR_ITEM));
+            //CreativeInventory::getInstance()->add(ItemFactory::getInstance()->get(CustomIds::WARPED_DOOR_ITEM));
 		}
 		if ($cfg->isEnableCampfire()) {
 			$this->registerItem(new ItemBlock(new ItemIdentifier(CustomIds::CAMPFIRE_ITEM, 0), BlockFactory::getInstance()->get(Ids::CAMPFIRE, 0)));
@@ -719,6 +720,116 @@ class Main extends PluginBase
                 ],
                 ['A' => ItemFactory::getInstance()->get(CustomIds::POLISHED_BLACKSTONE_SLAB_ITEM)],
                 [ItemFactory::getInstance()->get(CustomIds::CHISELED_POLISHED_BLACKSTONE_ITEM)])
+        );
+
+        $this->getServer()->getCraftingManager()->registerShapedRecipe(new ShapedRecipe(
+                [
+                    ' A ',
+                    ' A ',
+                    ' B '
+                ],
+                ['A' => ItemFactory::getInstance()->get(CustomIds::ITEM_NETHERITE_INGOT), 'B' => ItemFactory::getInstance()->get(ItemIds::STICK)],
+                [ItemFactory::getInstance()->get(CustomIds::ITEM_NETHERITE_SWORD)])
+        );
+        $this->getServer()->getCraftingManager()->registerShapedRecipe(new ShapedRecipe(
+                [
+                    ' A ',
+                    ' B ',
+                    ' B '
+                ],
+                ['A' => ItemFactory::getInstance()->get(CustomIds::ITEM_NETHERITE_INGOT), 'B' => VanillaItems::STICK()],
+                [ItemFactory::getInstance()->get(CustomIds::ITEM_NETHERITE_SHOVEL)])
+        );
+        $this->getServer()->getCraftingManager()->registerShapedRecipe(new ShapedRecipe(
+                [
+                    'AAA',
+                    ' B ',
+                    ' B '
+                ],
+                ['A' => ItemFactory::getInstance()->get(CustomIds::ITEM_NETHERITE_INGOT), 'B' => VanillaItems::STICK()],
+                [ItemFactory::getInstance()->get(CustomIds::ITEM_NETHERITE_PICKAXE)])
+        );
+        $this->getServer()->getCraftingManager()->registerShapedRecipe(new ShapedRecipe(
+                [
+                    ' AA',
+                    ' BA',
+                    ' B '
+                ],
+                ['A' => ItemFactory::getInstance()->get(CustomIds::ITEM_NETHERITE_INGOT), 'B' => VanillaItems::STICK()],
+                [ItemFactory::getInstance()->get(CustomIds::ITEM_NETHERITE_AXE)])
+        );
+        $this->getServer()->getCraftingManager()->registerShapedRecipe(new ShapedRecipe(
+                [
+                    'AA ',
+                    'AB ',
+                    ' B '
+                ],
+                ['A' => ItemFactory::getInstance()->get(CustomIds::ITEM_NETHERITE_INGOT), 'B' => VanillaItems::STICK()],
+                [ItemFactory::getInstance()->get(CustomIds::ITEM_NETHERITE_AXE)])
+        );
+        $this->getServer()->getCraftingManager()->registerShapedRecipe(new ShapedRecipe(
+                [
+                    'AA ',
+                    ' B ',
+                    ' B '
+                ],
+                ['A' => ItemFactory::getInstance()->get(CustomIds::ITEM_NETHERITE_INGOT), 'B' => VanillaItems::STICK()],
+                [ItemFactory::getInstance()->get(CustomIds::ITEM_NETHERITE_HOE)])
+        );
+        $this->getServer()->getCraftingManager()->registerShapedRecipe(new ShapedRecipe(
+                [
+                    ' AA',
+                    ' B ',
+                    ' B '
+                ],
+                ['A' => ItemFactory::getInstance()->get(CustomIds::ITEM_NETHERITE_INGOT), 'B' => VanillaItems::STICK()],
+                [ItemFactory::getInstance()->get(CustomIds::ITEM_NETHERITE_HOE)])
+        );
+
+        $this->getServer()->getCraftingManager()->registerShapedRecipe(new ShapedRecipe(
+                [
+                    'AAA',
+                    'A A',
+                    '   '
+                ],
+                ['A' => ItemFactory::getInstance()->get(CustomIds::ITEM_NETHERITE_INGOT)],
+                [ItemFactory::getInstance()->get(CustomIds::NETHERITE_HELMET)])
+        );
+        $this->getServer()->getCraftingManager()->registerShapedRecipe(new ShapedRecipe(
+                [
+                    'A A',
+                    'AAA',
+                    'AAA'
+                ],
+                ['A' => ItemFactory::getInstance()->get(CustomIds::ITEM_NETHERITE_INGOT)],
+                [ItemFactory::getInstance()->get(CustomIds::NETHERITE_CHESTPLATE)])
+        );
+        $this->getServer()->getCraftingManager()->registerShapedRecipe(new ShapedRecipe(
+                [
+                    'AAA',
+                    'A A',
+                    'A A'
+                ],
+                ['A' => ItemFactory::getInstance()->get(CustomIds::ITEM_NETHERITE_INGOT)],
+                [ItemFactory::getInstance()->get(CustomIds::NETHERITE_LEGGINGS)])
+        );
+        $this->getServer()->getCraftingManager()->registerShapedRecipe(new ShapedRecipe(
+                [
+                    '   ',
+                    'A A',
+                    'A A'
+                ],
+                ['A' => ItemFactory::getInstance()->get(CustomIds::ITEM_NETHERITE_INGOT)],
+                [ItemFactory::getInstance()->get(CustomIds::NETHERITE_BOOTS)])
+        );
+        $this->getServer()->getCraftingManager()->registerShapedRecipe(new ShapedRecipe(
+                [
+                    'A A',
+                    'A A',
+                    '   '
+                ],
+                ['A' => ItemFactory::getInstance()->get(CustomIds::ITEM_NETHERITE_INGOT)],
+                [ItemFactory::getInstance()->get(CustomIds::NETHERITE_BOOTS)])
         );
     }
 }
