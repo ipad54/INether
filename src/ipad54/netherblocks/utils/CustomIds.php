@@ -2,7 +2,8 @@
 
 namespace ipad54\netherblocks\utils;
 
-final class CustomIds {
+final class CustomIds
+{
 
     public const ANCIENT_DEBRIS_BLOCK = 526;
     public const ANCIENT_DEBRIS_ITEM = -271;
@@ -80,16 +81,6 @@ final class CustomIds {
     public const CRIMSON_PLANKS_ITEM = -242;
     public const WARPED_PLANKS_BLOCK = 498;
     public const WARPED_PLANKS_ITEM = -243;
-    public const CRIMSON_WALL_SIGN_BLOCK = 507;
-    public const CRIMSON_WALL_SIGN_ITEM = -213;
-    public const WARPED_WALL_SIGN_BLOCK = 508;
-    public const WARPED_WALL_SIGN_ITEM = -253;
-    public const CRIMSON_FLOOR_SIGN_BLOCK = 505;
-    public const CRIMSON_FLOOR_SIGN_ITEM = -250;
-    public const WARPED_FLOOR_SIGN_BLOCK = 506;
-    public const WARPED_FLOOR_SIGN_ITEM = -251;
-    public const CRIMSON_SIGN = 753;
-    public const WARPED_SIGN = 754;
     public const CRIMSON_ROOTS_BLOCK = 478;
     public const WARPED_ROOTS_BLOCK = 479;
     public const CRIMSON_ROOTS_ITEM = -223;
@@ -111,7 +102,7 @@ final class CustomIds {
     public const WARPED_STRIPPED_HYPHAE_BLOCK = 556;
     public const WARPED_STRIPPED_HYPHAE_ITEM = -301;
     public const CRIMSON_DOOR_BLOCK = 499;
-    public const CRIMSON_DOOOR_ITEM = 755;
+    public const CRIMSON_DOOR_ITEM = 755;
     public const WARPED_DOOR_BLOCK = 500;
     public const WARPED_DOOR_ITEM = 756;
     public const CRIMSON_FENCE_BLOCK = 511;
@@ -127,9 +118,9 @@ final class CustomIds {
     public const CRIMSON_STAIRS_BLOCK = 509;
     public const CRIMSON_STAIRS_ITEM = -254;
     public const POLISHED_BLACKSTONE_BRICK_STAIRS_ITEM = -275;
-    public const POLISHED_BLACKSTONE_BRICK_STAIRS_BLOCK= 530;
+    public const POLISHED_BLACKSTONE_BRICK_STAIRS_BLOCK = 530;
     public const POLISHED_BLACKSTONE_STAIRS_ITEM = -292;
-    public const POLISHED_BLACKSTONE_STAIRS_BLOCK= 547;
+    public const POLISHED_BLACKSTONE_STAIRS_BLOCK = 547;
     public const WARPED_STAIRS_ITEM = -255;
     public const WARPED_STAIRS_BLOCK = 510;
     public const CRIMSON_TRAPDOOR_ITEM = -246;
@@ -174,5 +165,12 @@ final class CustomIds {
     public const WARPED_BUTTON_ITEM = -261;
     public const POLISHED_BLACKSTONE_BUTTON_BLOCK = 551;
     public const POLISHED_BLACKSTONE_BUTTON_ITEM = -296;
+
+    public const CRIMSON_STANDING_SIGN = 505;
+    public const WARPED_STANDING_SIGN = 506;
+    public const CRIMSON_WALL_SIGN = 507;
+    public const WARPED_WALL_SIGN = 508;
+    public const CRIMSON_SIGN_ITEM = 753;
+    public const WARPED_SIGN_ITEM = 754;
 
 }
