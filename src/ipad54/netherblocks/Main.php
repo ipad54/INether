@@ -273,8 +273,6 @@ class Main extends PluginBase
 
 			$this->registerBlock(new Hyphae(new BID(CustomIds::CRIMSON_STRIPPED_HYPHAE_BLOCK, 0, CustomIds::CRIMSON_STRIPPED_HYPHAE_ITEM), "Crimson Stripped Hyphae", new BlockBreakInfo(2, BlockToolType::AXE, 0, 10), TreeType::CRIMSON(), true));
 			$this->registerBlock(new Hyphae(new BID(CustomIds::WARPED_STRIPPED_HYPHAE_BLOCK, 0, CustomIds::WARPED_STRIPPED_HYPHAE_ITEM), "Warped Stripped Hyphae", new BlockBreakInfo(2, BlockToolType::AXE, 0, 10), TreeType::WARPED(), true));
-			//$this->registerBlock(new Door(new BID(CustomIds::CRIMSON_DOOR_BLOCK, 0, CustomIds::CRIMSON_DOOR_ITEM), "Crimson Door", new BlockBreakInfo(3, BlockToolType::AXE)), false);
-			//$this->registerBlock(new Door(new BID(CustomIds::WARPED_DOOR_BLOCK, 0, CustomIds::WARPED_DOOR_ITEM), "Warped Door", new BlockBreakInfo(3, BlockToolType::AXE)), false);
 			$this->registerBlock(new Fence(new BID(CustomIds::CRIMSON_FENCE_BLOCK, 0, CustomIds::CRIMSON_FENCE_ITEM), "Crimson Fence", new BlockBreakInfo(2, BlockToolType::AXE, 0, 3)));
 			$this->registerBlock(new Fence(new BID(CustomIds::WARPED_FENCE_BLOCK, 0, CustomIds::WARPED_FENCE_ITEM), "Warped Fence", new BlockBreakInfo(2, BlockToolType::AXE, 0, 3)));
 			$this->registerBlock(new FenceGate(new BID(CustomIds::CRIMSON_FENCE_GATE_BLOCK, 0, CustomIds::CRIMSON_FENCE_GATE_ITEM), "Crimson Fence Gate", new BlockBreakInfo(2, BlockToolType::AXE, 0, 3)));
@@ -343,10 +341,6 @@ class Main extends PluginBase
             $this->registeritem(new ItemBlockWallOrFloor(new ItemIdentifier(CustomIds::WARPED_SIGN_ITEM, 0), BlockFactory::getInstance()->get(CustomIds::WARPED_STANDING_SIGN, 0), BlockFactory::getInstance()->get(CustomIds::WARPED_WALL_SIGN, 0)), false);
             $this->registerItem(new ItemBlock(new ItemIdentifier(CustomIds::CRIMSON_DOOR_ITEM, 0), BlockFactory::getInstance()->get(CustomIds::CRIMSON_DOOR_BLOCK, 0)));
 			$this->registerItem(new ItemBlock(new ItemIdentifier(CustomIds::WARPED_DOOR_ITEM, 0), BlockFactory::getInstance()->get(CustomIds::WARPED_DOOR_BLOCK, 0)));
-            //CreativeInventory::getInstance()->add(ItemFactory::getInstance()->get(CustomIds::WARPED_SIGN_ITEM));
-            //CreativeInventory::getInstance()->add(ItemFactory::getInstance()->get(CustomIds::CRIMSON_SIGN_ITEM));
-            //CreativeInventory::getInstance()->add(ItemFactory::getInstance()->get(CustomIds::CRIMSON_DOOR_ITEM));
-            //CreativeInventory::getInstance()->add(ItemFactory::getInstance()->get(CustomIds::WARPED_DOOR_ITEM));
 		}
 		if ($cfg->isEnableCampfire()) {
 			$this->registerItem(new ItemBlock(new ItemIdentifier(CustomIds::CAMPFIRE_ITEM, 0), BlockFactory::getInstance()->get(Ids::CAMPFIRE, 0)));
