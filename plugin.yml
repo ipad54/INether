@@ -1,5 +1,7 @@
 name: INether
 main: ipad54\netherblocks\Main
 api: 4.0.0
-version: 1.0.1
+version: 1.0.2
 author: ipad54
+authors:
+  - TheNote
