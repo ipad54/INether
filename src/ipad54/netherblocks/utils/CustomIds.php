@@ -88,8 +88,8 @@ final class CustomIds {
     public const CRIMSON_FLOOR_SIGN_ITEM = -250;
     public const WARPED_FLOOR_SIGN_BLOCK = 506;
     public const WARPED_FLOOR_SIGN_ITEM = -251;
-    public const CRIMSON_SIGN = 753;
-    public const WARPED_SIGN = 754;
+    public const CRIMSON_SIGN_ITEM = 753;
+    public const WARPED_SIGN_ITEM = 754;
     public const CRIMSON_ROOTS_BLOCK = 478;
     public const WARPED_ROOTS_BLOCK = 479;
     public const CRIMSON_ROOTS_ITEM = -223;
@@ -111,7 +111,7 @@ final class CustomIds {
     public const WARPED_STRIPPED_HYPHAE_BLOCK = 556;
     public const WARPED_STRIPPED_HYPHAE_ITEM = -301;
     public const CRIMSON_DOOR_BLOCK = 499;
-    public const CRIMSON_DOOOR_ITEM = 755;
+    public const CRIMSON_DOOR_ITEM = 755;
     public const WARPED_DOOR_BLOCK = 500;
     public const WARPED_DOOR_ITEM = 756;
     public const CRIMSON_FENCE_BLOCK = 511;
@@ -174,5 +174,4 @@ final class CustomIds {
     public const WARPED_BUTTON_ITEM = -261;
     public const POLISHED_BLACKSTONE_BUTTON_BLOCK = 551;
     public const POLISHED_BLACKSTONE_BUTTON_ITEM = -296;
-
 }
