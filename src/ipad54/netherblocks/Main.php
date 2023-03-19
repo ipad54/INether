@@ -87,7 +87,7 @@ use pocketmine\scheduler\AsyncTask;
 use pocketmine\Server;
 use pocketmine\utils\Config;
 use ReflectionMethod;
-use const pocketmine\DATA\BEDROCK;
+use const pocketmine\data\bedrock;
 
 class Main extends PluginBase
 {
