@@ -31,4 +31,4 @@
 - [X] Netherite Armor & Tools
 - [ ] Lodestone
 - [X] Campfire
-e
+- atm this plugin is not able to be used
