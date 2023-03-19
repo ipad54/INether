@@ -1,6 +1,4 @@
-[![](https://poggit.pmmp.io/shield.state/INetherPM4)](https://poggit.pmmp.io/p/INetherPM4)
-<a href="https://poggit.pmmp.io/p/INetherPM4"><img src="https://poggit.pmmp.io/shield.state/INetherPM4"></a>
-
+# INether [![](https://poggit.pmmp.io/shield.state/INether)](https://poggit.pmmp.io/p/INether) [![](https://poggit.pmmp.io/shield.dl.total/INether)](https://poggit.pmmp.io/p/INether)
 
 <p align="center">
 	<a href="https://vk.com/m.play2018"><img src="https://github.com/ipad54/INether/blob/6cfb5ea0f4fdac553b6aaa6df4bce804ad0f7ae0/icon.png"></img></a><br>
@@ -33,4 +31,3 @@
 - [X] Netherite Armor & Tools
 - [ ] Lodestone
 - [X] Campfire
-
