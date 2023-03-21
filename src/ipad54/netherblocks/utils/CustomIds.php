@@ -3,7 +3,8 @@
 namespace ipad54\netherblocks\utils;
 
 final class CustomIds {
-
+    
+    public const DEEPSLATE_BLOCK = 633;
     public const ANCIENT_DEBRIS_BLOCK = 526;
     public const ANCIENT_DEBRIS_ITEM = -271;
     public const BASALT_ITEM = -234;
