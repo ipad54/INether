@@ -3,6 +3,7 @@
 namespace ipad54\netherblocks;
 
 use ipad54\netherblocks\blocks\Basalt;
+use ipad54\netherblocks\blocks\Deepslate;
 use ipad54\netherblocks\blocks\Blackstone;
 use ipad54\netherblocks\blocks\Campfire;
 use ipad54\netherblocks\blocks\Chain;
