@@ -31,6 +31,8 @@ blocks:
   stairs: true
   #Soul & regular
   campfire: true
+  #deepslates
+  deepslate : true
 
 items:
   record_pigstep: true
