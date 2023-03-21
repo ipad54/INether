@@ -22,6 +22,11 @@ class CustomConfig
         return $this->match("blocks.crying_obsidian");
     }
 
+    public function isEnableDeepslate()
+    {
+        return $this->match("blocks.deepslate");
+    }
+    
     public function isEnableNetherwart()
     {
         return $this->match("blocks.nether_wart");
