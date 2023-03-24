@@ -130,7 +130,11 @@ class Main extends PluginBase
 		});
 	}
 
-
+ function onDisable(): void {
+		if ($this->debugMode) {
+			$this->getLogger()->info(TextFormat::DARK_AQUA . "Unloading magic...:I");
+		}
+	}
 	public static function getInstance(): self
 	{
 		return self::$instance;
