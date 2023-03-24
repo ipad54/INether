@@ -107,7 +107,7 @@ class Main extends PluginBase
 		$this->initBlocks();
 		$this->initTiles();
 		$this->initItems();
-		$this->getLogger()->info(TextFormat::LIGHT_PURPLE . "Loading some magic!!!");
+		$this->getLogger()->info(TextFormat::LIGHT_PURPLE . "Loading some magic!!! INether For FunworldMCPE. https://discord.me/funworld. pull out a chair and stay a while. fixed by skyss0fly:)");
 	}
 
 	protected function onEnable(): void
@@ -116,10 +116,11 @@ class Main extends PluginBase
 	
 	{ //credits https://github.com/cladevs/VanillaX
 		Server::getInstance()->getPluginManager()->registerEvents(new EventListener(), $this);
+		
 		Server::getInstance()->getAsyncPool()->addWorkerStartHook(function (int $worker): void {
 			Server::getInstance()->getAsyncPool()->submitTaskToWorker(new class() extends AsyncTask {
 
-			$this->getLogger()->info(TextFormat::LIGHT_PURPLE . "INether For FunworldMCPE. https://discord.me/funworld. pull out a chair and stay a while. fixed by skyss0fly:) plugin enabled!");
+			
 				public function onRun(): void
 				{
 					Main::initializeRuntimeIds();
