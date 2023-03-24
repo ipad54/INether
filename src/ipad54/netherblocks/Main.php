@@ -97,7 +97,7 @@ class Main extends PluginBase
 	private static self $instance;
 
 	protected function onLoad(): void
-			$this->getLogger()->info(TextFormat::LIGHT_PURPLE . "Loading some magic!!!");
+			
 	
 	{
 		self::$instance = $this;
@@ -107,6 +107,7 @@ class Main extends PluginBase
 		$this->initBlocks();
 		$this->initTiles();
 		$this->initItems();
+		$this->getLogger()->info(TextFormat::LIGHT_PURPLE . "Loading some magic!!!");
 	}
 
 	protected function onEnable(): void
