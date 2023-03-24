@@ -22,7 +22,7 @@ class CustomConfig
         return $this->match("blocks.crying_obsidian");
     }
 
-    public function isEnableDeepslate()
+    public function isEnabledDeepslate()
     {
         return $this->match("blocks.deepslate");
     }
