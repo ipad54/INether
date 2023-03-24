@@ -112,7 +112,6 @@ class Main extends PluginBase
 
 	protected function onEnable(): void
 			
-			$this->getLogger()->info(TextFormat::LIGHT_PURPLE . "INether For FunworldMCPE. https://discord.me/funworld. pull out a chair and stay a while. fixed by skyss0fly:) plugin enabled!");
 		
 	
 	{ //credits https://github.com/cladevs/VanillaX
@@ -120,6 +119,7 @@ class Main extends PluginBase
 		Server::getInstance()->getAsyncPool()->addWorkerStartHook(function (int $worker): void {
 			Server::getInstance()->getAsyncPool()->submitTaskToWorker(new class() extends AsyncTask {
 
+			$this->getLogger()->info(TextFormat::LIGHT_PURPLE . "INether For FunworldMCPE. https://discord.me/funworld. pull out a chair and stay a while. fixed by skyss0fly:) plugin enabled!");
 				public function onRun(): void
 				{
 					Main::initializeRuntimeIds();
