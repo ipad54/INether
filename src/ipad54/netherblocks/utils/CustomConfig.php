@@ -22,9 +22,9 @@ class CustomConfig
         return $this->match("blocks.crying_obsidian");
     }
 
-    public function isEnabledDeepslate()
+    public function isEnabledLodestone()
     {
-        return $this->match("blocks.deepslate");
+        return $this->match("blocks.lodestone");
     }
     
     public function isEnableNetherwart()
