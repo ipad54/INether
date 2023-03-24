@@ -97,10 +97,8 @@ class Main extends PluginBase
 	private static self $instance;
 
 	protected function onLoad(): void
-		if ($this->debugMode) {
 			$this->getLogger()->info(TextFormat::LIGHT_PURPLE . "Loading some magic!!!");
-		}
-	}
+	
 	{
 		self::$instance = $this;
 		$this->saveResource("config.yml");
@@ -112,10 +110,10 @@ class Main extends PluginBase
 	}
 
 	protected function onEnable(): void
-			if ($this->debugMode) {
+			
 			$this->getLogger()->info(TextFormat::LIGHT_PURPLE . "INether For FunworldMCPE. https://discord.me/funworld. pull out a chair and stay a while. fixed by skyss0fly:) plugin enabled!");
-		}
-	}
+		
+	
 	{ //credits https://github.com/cladevs/VanillaX
 		Server::getInstance()->getPluginManager()->registerEvents(new EventListener(), $this);
 		Server::getInstance()->getAsyncPool()->addWorkerStartHook(function (int $worker): void {
