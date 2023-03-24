@@ -174,8 +174,8 @@ class Main extends PluginBase
 			$this->registerBlock(new Opaque(new BID(CustomIds::ANCIENT_DEBRIS_BLOCK, 0, CustomIds::ANCIENT_DEBRIS_ITEM), "Ancient Debris", new BlockBreakInfo(30, BlockToolType::PICKAXE, ToolTier::DIAMOND()->getHarvestLevel(), 6000)));
 		}
 	 if ($cfg->isEnabledDeepslate()) {
-		 	$this->registerBlock(new Opaque(new BID(CustomIds::DEEPSLATE_BLOCK, 0, CustomIds::DEEPSLATE_ITEM), "Deepslate", new BlockBreakInfo(1.5, BlockToolType::PICKAXE, ToolTier::DIAMOND()->getHarvestLevel(), 4.2)));
-		  }
+		 $this->registerBlock(new Opaque(new BID(CustomIds::DEEPSLATE_BLOCK, 0, CustomIds::DEEPSLATE_BLOCK_ITEM), "Deepslate", new BlockBreakInf(1.5, BlockToolType::PICKAXE()));
+				      }
 		if ($cfg->isEnabledBasalt()) {
 			$this->registerBlock(new Basalt(new BID(CustomIds::BASALT_BLOCK, 0, CustomIds::BASALT_ITEM), "Basalt", new BlockBreakInfo(1.25, BlockToolType::PICKAXE, ToolTier::WOOD()->getHarvestLevel(), 4.2)));
 			$this->registerBlock(new PolishedBasalt(new BID(CustomIds::POLISHED_BASALT_BLOCK, 0, CustomIds::POLISHED_BASALT_ITEM), "Polished Basalt", new BlockBreakInfo(1.25, BlockToolType::PICKAXE, ToolTier::WOOD()->getHarvestLevel(), 4.2)));
