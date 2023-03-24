@@ -8,12 +8,12 @@ use ipad54\netherblocks\blocks\Campfire;
 use ipad54\netherblocks\blocks\Chain;
 use ipad54\netherblocks\blocks\ChiseledPolishedBlackstone;
 use ipad54\netherblocks\blocks\CryingObsidian;
-use ipad54\netherblocks\blocks\Deepslate;
 use ipad54\netherblocks\blocks\FloorSign;
 use ipad54\netherblocks\blocks\Fungus;
 use ipad54\netherblocks\blocks\GildedBlackstone;
 use ipad54\netherblocks\blocks\Hyphae;
 use ipad54\netherblocks\blocks\Log;
+use ipad54\netherblocks\blocks\Lodestone;
 use ipad54\netherblocks\blocks\NetherGoldOre;
 use ipad54\netherblocks\blocks\Nylium;
 use ipad54\netherblocks\blocks\Planks;
@@ -173,8 +173,8 @@ class Main extends PluginBase
 		if ($cfg->isEnabledDebris()) {
 			$this->registerBlock(new Opaque(new BID(CustomIds::ANCIENT_DEBRIS_BLOCK, 0, CustomIds::ANCIENT_DEBRIS_ITEM), "Ancient Debris", new BlockBreakInfo(30, BlockToolType::PICKAXE, ToolTier::DIAMOND()->getHarvestLevel(), 6000)));
 		}
-	 if ($cfg->isEnabledDeepslate()) {
-			$this->registerBlock(new Opaque(new BID(CustomIds::DEEPSLATE_BLOCK, 0, CustomIds::DEEPSLATE_BLOCK), "Deepslate", new BlockBreakInfo(1.5, BlockToolType::PICKAXE)));
+	 if ($cfg->isEnabledLodestone()) {
+			$this->registerBlock(new Opaque(new BID(CustomIds::LODESTONE_BLOCK, 0, CustomIds::LODESTONE_BLOCK), "Lodestone", new BlockBreakInfo(3.5, BlockToolType::PICKAXE)));
 		}
 		if ($cfg->isEnabledBasalt()) {
 			$this->registerBlock(new Basalt(new BID(CustomIds::BASALT_BLOCK, 0, CustomIds::BASALT_ITEM), "Basalt", new BlockBreakInfo(1.25, BlockToolType::PICKAXE, ToolTier::WOOD()->getHarvestLevel(), 4.2)));
