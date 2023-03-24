@@ -4,7 +4,7 @@ namespace ipad54\netherblocks\utils;
 
 final class CustomIds {
     
-    public const DEEPSLATE_BLOCK = 633;
+    public const LODESTONE_BLOCK = 477;
     public const ANCIENT_DEBRIS_BLOCK = 526;
     public const ANCIENT_DEBRIS_ITEM = -271;
     public const BASALT_ITEM = -234;
@@ -75,7 +75,6 @@ final class CustomIds {
     public const RECORD_PIGSTEP = 759;
     public const RECORD_PIGSTEP_SOUND_ID = 314;
     public const LODESTONE_COMPASS = 601;
-    public const LODESTONE_BLOCK = 477;
     public const LODESTONE_ITEM = -222;
     public const CRIMSON_PLANKS_BLOCK = 497;
     public const CRIMSON_PLANKS_ITEM = -242;
