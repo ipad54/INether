@@ -87,6 +87,7 @@ use pocketmine\plugin\PluginBase;
 use pocketmine\scheduler\AsyncTask;
 use pocketmine\Server;
 use pocketmine\utils\Config;
+use pocketmine\src\utils\TextFormat;
 use ReflectionMethod;
 use const pocketmine\BEDROCK_BLOCK_UPGRADE_SCHEMA_PATH;
 
