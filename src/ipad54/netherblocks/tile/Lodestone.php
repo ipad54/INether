@@ -2,11 +2,8 @@
 
 namespace ipad54\netherblocks\tile;
 
-use ipad54\netherblocks\Main;
 use pocketmine\block\tile\Spawnable;
-use pocketmine\nbt\NbtDataException;
 use pocketmine\nbt\tag\CompoundTag;
-use pocketmine\nbt\tag\IntTag;
 
 class Lodestone extends Spawnable
 {
@@ -32,7 +29,7 @@ class Lodestone extends Spawnable
 
     public function readSaveData(CompoundTag $nbt): void
     {
-        $this->lodestoneId = $nbt->getInt(self::TAG_TRACKING);
+        $this->lodestoneId = $nbt->getInt(self::TAG_TRACKING, -1);
     }
 
     protected function writeSaveData(CompoundTag $nbt): void

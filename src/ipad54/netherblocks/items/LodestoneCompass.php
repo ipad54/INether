@@ -4,7 +4,6 @@ namespace ipad54\netherblocks\items;
 
 use pocketmine\item\Item;
 use pocketmine\nbt\tag\CompoundTag;
-use pocketmine\nbt\tag\IntTag;
 
 class LodestoneCompass extends Item
 {
@@ -25,13 +24,13 @@ class LodestoneCompass extends Item
 
     public function deserializeCompoundTag(CompoundTag $tag): void
     {
-        if(($nbt = $tag->getInt(self::TAG_TRACKING)) instanceof IntTag){
-            $this->lodestoneId = $nbt;
-        }
+		parent::deserializeCompoundTag($tag);
+		$this->lodestoneId = $tag->getInt(self::TAG_TRACKING, -1);
     }
 
     public function serializeCompoundTag(CompoundTag $tag): void
     {
+		parent::serializeCompoundTag($tag);
         if($this->lodestoneId > -1){
             $tag->setInt(self::TAG_TRACKING, $this->lodestoneId);
         }
