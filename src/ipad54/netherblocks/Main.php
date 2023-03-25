@@ -330,7 +330,7 @@ class Main extends PluginBase
 					
         if($cfg->isEnableLodestone()) {
             $tf->register(TileLodestone::class, ["Lodestone", "minecraft:lodestone"]);
-        }
+	} 
 		}
 	}
 
