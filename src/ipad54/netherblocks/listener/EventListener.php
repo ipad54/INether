@@ -33,11 +33,6 @@ class EventListener implements Listener {
 			foreach($world->getLoadedChunks() as $chunk) {
 				foreach($chunk->getTiles() as $tile) {
 					if($tile instanceof Lodestone and $tile->getLodestoneId() === $trackingId) {
-						$world->broadcastPacketToViewers($tile->getPosition(), PositionTrackingDBServerBroadcastPacket::create(
-							PositionTrackingDBServerBroadcastPacket::ACTION_UPDATE,
-							$trackingId,
-							$tile->getSerializedSpawnCompound()
-						));
 						$session->sendDataPacket(PositionTrackingDBServerBroadcastPacket::create(
 							PositionTrackingDBServerBroadcastPacket::ACTION_UPDATE,
 							$trackingId,
