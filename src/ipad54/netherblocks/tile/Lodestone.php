@@ -25,7 +25,9 @@ class Lodestone extends Spawnable
 
     protected function addAdditionalSpawnData(CompoundTag $nbt): void
     {
-        $nbt->setInt(self::TAG_TRACKING, $this->lodestoneId);
+		if($this->lodestoneId > -1){
+			$nbt->setInt(self::TAG_TRACKING, $this->lodestoneId); // only exists to the client after a compass exists to track it
+		}
     }
 
     public function readSaveData(CompoundTag $nbt): void
@@ -39,10 +41,12 @@ class Lodestone extends Spawnable
     }
 
 	protected function onBlockDestroyedHook() : void{
-		$this->getPosition()->getWorld()->broadcastPacketToViewers($this->getPosition(), PositionTrackingDBServerBroadcastPacket::create(
-			PositionTrackingDBServerBroadcastPacket::ACTION_DESTROY,
-			$this->getLodestoneId(),
-			$this->getSerializedSpawnCompound()
-		));
+		if($this->lodestoneId > -1){ // only exists to the client after a compass exists to track it
+			$this->getPosition()->getWorld()->broadcastPacketToViewers($this->getPosition(), PositionTrackingDBServerBroadcastPacket::create(
+				PositionTrackingDBServerBroadcastPacket::ACTION_DESTROY,
+				$this->getLodestoneId(),
+				$this->getSerializedSpawnCompound()
+			));
+		}
 	}
 }
