@@ -59,7 +59,6 @@ class Lodestone extends Opaque {
             $item->setLodestoneId($this->lodestoneId);
             $this->position->getWorld()->addSound($this->position, new LodestoneCompassLinkSound());
             $player->getInventory()->addItem($item);
-            var_dump($this->lodestoneId);
             return true;
         }
         return false;
