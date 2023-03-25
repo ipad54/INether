@@ -39,6 +39,9 @@ class Lodestone extends Opaque {
         $tile = $this->position->getWorld()->getTile($this->position);
         if($tile instanceof TileLodestone){
             $this->lodestoneId = $tile->getLodestoneId();
+			if(self::$nextId > $this->lodestoneId){
+				self::$nextId = $this->lodestoneId + 1;
+			}
         }
     }
 
