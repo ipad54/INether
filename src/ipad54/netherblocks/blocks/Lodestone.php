@@ -18,7 +18,7 @@ class Lodestone extends Opaque {
 
 	private static int $nextId = 0;
 
-	private static function getNextId() : int{
+	public static function getNextId() : int{
 		return self::$nextId++;
 	}
 
@@ -45,7 +45,7 @@ class Lodestone extends Opaque {
     public function place(BlockTransaction $tx, Item $item, Block $blockReplace, Block $blockClicked, int $face, Vector3 $clickVector, ?Player $player = null): bool
     {
         if($this->lodestoneId === -1){
-            $this->lodestoneId = self::getNextId();
+            $this->lodestoneId = self::$nextId++;
         }
         return parent::place($tx, $item, $blockReplace, $blockClicked, $face, $clickVector, $player);
     }
