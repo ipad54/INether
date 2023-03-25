@@ -327,12 +327,14 @@ class Main extends PluginBase
 		$tf = TileFactory::getInstance();
 		if ($cfg->isEnableCampfire()) {
 			$tf->register(TileCampfire::class, ["Campfire", "minecraft:campfire"]);
-		}
-	}
-	}
+			
+				}
         if($cfg->isEnableLodestone()) {
             $tf->register(TileLodestone::class, ["Lodestone", "minecraft:lodestone"]);
         }
+		}
+	}
+
 
 	public function initItems(): void
 	{
@@ -340,6 +342,7 @@ class Main extends PluginBase
 		if ($cfg->isEnabledSoulSoil()) {
 			$this->registerItem(new FlintAndSteel(new ItemIdentifier(ItemIds::FLINT_AND_STEEL, 0), "Flint and Steel"), false);
 		}
+		
 		if ($cfg->isEnablePigstep()) {
 			$class = new \ReflectionClass(RecordType::class);
 			$register = $class->getMethod('register');
