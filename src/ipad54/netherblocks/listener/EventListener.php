@@ -7,8 +7,10 @@ use ipad54\netherblocks\tile\Lodestone;
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerCreationEvent;
 use pocketmine\event\server\DataPacketReceiveEvent;
+use pocketmine\nbt\tag\CompoundTag;
 use pocketmine\network\mcpe\protocol\PositionTrackingDBClientRequestPacket;
 use pocketmine\network\mcpe\protocol\PositionTrackingDBServerBroadcastPacket;
+use pocketmine\network\mcpe\protocol\types\CacheableNbt;
 
 class EventListener implements Listener {
 
@@ -21,18 +23,35 @@ class EventListener implements Listener {
 		if($packet instanceof PositionTrackingDBClientRequestPacket) {
 			$trackingId = $packet->getTrackingId();
 			$session = $event->getOrigin();
-			$world = $session->getPlayer()->getWorld();
+			$world = $session->getPlayer()?->getWorld();
+			if($world === null)
+				$session->sendDataPacket(PositionTrackingDBServerBroadcastPacket::create(
+					PositionTrackingDBServerBroadcastPacket::ACTION_NOT_FOUND,
+					$trackingId,
+					new CacheableNbt(CompoundTag::create())
+				));
 			foreach($world->getLoadedChunks() as $chunk) {
 				foreach($chunk->getTiles() as $tile) {
 					if($tile instanceof Lodestone and $tile->getLodestoneId() === $trackingId) {
+						$world->broadcastPacketToViewers($tile->getPosition(), PositionTrackingDBServerBroadcastPacket::create(
+							PositionTrackingDBServerBroadcastPacket::ACTION_UPDATE,
+							$trackingId,
+							$tile->getSerializedSpawnCompound()
+						));
 						$session->sendDataPacket(PositionTrackingDBServerBroadcastPacket::create(
 							PositionTrackingDBServerBroadcastPacket::ACTION_UPDATE,
 							$trackingId,
 							$tile->getSerializedSpawnCompound()
 						));
+						return;
 					}
 				}
 			}
+			$session->sendDataPacket(PositionTrackingDBServerBroadcastPacket::create(
+				PositionTrackingDBServerBroadcastPacket::ACTION_NOT_FOUND,
+				$trackingId,
+				new CacheableNbt(CompoundTag::create())
+			));
 		}
 	}
 }
