@@ -12,6 +12,7 @@ use ipad54\netherblocks\blocks\FloorSign;
 use ipad54\netherblocks\blocks\Fungus;
 use ipad54\netherblocks\blocks\GildedBlackstone;
 use ipad54\netherblocks\blocks\Hyphae;
+use ipad54\netherblocks\blocks\Lodestone;
 use ipad54\netherblocks\blocks\Log;
 use ipad54\netherblocks\blocks\NetherGoldOre;
 use ipad54\netherblocks\blocks\Nylium;
@@ -36,17 +37,19 @@ use ipad54\netherblocks\blocks\WarpedNylium;
 use ipad54\netherblocks\blocks\WarpedWartBlock;
 use ipad54\netherblocks\blocks\WeepingVines;
 use ipad54\netherblocks\blocks\WoodenButton;
-use ipad54\netherblocks\tile\Campfire as TileCampfire;
 use ipad54\netherblocks\items\FlintAndSteel;
+use ipad54\netherblocks\items\LodestoneCompass;
 use ipad54\netherblocks\listener\EventListener;
+use ipad54\netherblocks\tile\Campfire as TileCampfire;
+use ipad54\netherblocks\tile\Lodestone as TileLodestone;
 use ipad54\netherblocks\utils\CustomConfig;
 use ipad54\netherblocks\utils\CustomIds;
 use pocketmine\block\Block;
 use pocketmine\block\BlockBreakInfo;
 use pocketmine\block\BlockFactory;
+use pocketmine\block\BlockIdentifier as BID;
 use pocketmine\block\BlockIdentifierFlattened as BIDFlattened;
 use pocketmine\block\BlockLegacyIds as Ids;
-use pocketmine\block\BlockIdentifier as BID;
 use pocketmine\block\BlockToolType;
 use pocketmine\block\Door;
 use pocketmine\block\Fence;
@@ -62,25 +65,25 @@ use pocketmine\block\utils\TreeType;
 use pocketmine\block\Wall;
 use pocketmine\block\WoodenPressurePlate;
 use pocketmine\block\WoodenTrapdoor;
-use pocketmine\inventory\CreativeInventory;
-use pocketmine\item\ItemBlock;
-use pocketmine\item\ItemBlockWallOrFloor;
-use pocketmine\item\StringToItemParser;
-use pocketmine\lang\Translatable;
 use pocketmine\inventory\ArmorInventory;
+use pocketmine\inventory\CreativeInventory;
 use pocketmine\item\Armor;
 use pocketmine\item\ArmorTypeInfo;
 use pocketmine\item\Axe;
 use pocketmine\item\Hoe;
 use pocketmine\item\Item;
+use pocketmine\item\ItemBlock;
+use pocketmine\item\ItemBlockWallOrFloor;
 use pocketmine\item\ItemFactory;
 use pocketmine\item\ItemIdentifier;
 use pocketmine\item\ItemIds;
 use pocketmine\item\Pickaxe;
-use pocketmine\item\Shovel;
-use pocketmine\item\Sword;
 use pocketmine\item\Record;
+use pocketmine\item\Shovel;
+use pocketmine\item\StringToItemParser;
+use pocketmine\item\Sword;
 use pocketmine\item\ToolTier;
+use pocketmine\lang\Translatable;
 use pocketmine\network\mcpe\convert\RuntimeBlockMapping;
 use pocketmine\plugin\PluginBase;
 use pocketmine\scheduler\AsyncTask;
@@ -151,7 +154,6 @@ class Main extends PluginBase
 			}
 		}
 	}
-
 
 	public function initBlocks(): void
 	{
@@ -305,6 +307,10 @@ class Main extends PluginBase
 			$this->registerBlock(new SoulCampfire(new BID(CustomIds::SOUL_CAMPFIRE_BLOCK, 0, CustomIds::SOUL_CAMPFIRE_ITEM, TileCampfire::class), "Soul Campfire", new BlockBreakInfo(2, BlockToolType::AXE, 0, 10)), false, false);
 		}
 
+		if($cfg->isEnableLodestone()) {
+			$this->registerBlock(new Lodestone(new BID(CustomIds::LODESTONE_BLOCK, 0, CustomIds::LODESTONE_ITEM), "Lodestone", new BlockBreakInfo(3, BlockToolType::PICKAXE, 0, 15)));
+		}
+
 	}
 
 	public function initTiles(): void
@@ -313,6 +319,9 @@ class Main extends PluginBase
 		$tf = TileFactory::getInstance();
 		if ($cfg->isEnableCampfire()) {
 			$tf->register(TileCampfire::class, ["Campfire", "minecraft:campfire"]);
+		}
+		if($cfg->isEnableLodestone()) {
+			$tf->register(TileLodestone::class, ["Lodestone", "minecraft:lodestone"]);
 		}
 	}
 
@@ -331,7 +340,7 @@ class Main extends PluginBase
 			$instance = $class->newInstanceWithoutConstructor();
 			$constructor->invoke($instance, 'disk_pigstep', 'Lena Raine - Pigstep', CustomIds::RECORD_PIGSTEP_SOUND_ID, new Translatable('item.record_pigstep.desc', []));
 			$register->invoke(null, $instance);
-			
+
 			$this->registerItem(new Record(new ItemIdentifier(CustomIds::RECORD_PIGSTEP, 0), RecordType::DISK_PIGSTEP(), "Record Pigstep"));
 		}
 		if ($cfg->isEnableWood()) {
@@ -358,7 +367,7 @@ class Main extends PluginBase
 			$instance = $class->newInstanceWithoutConstructor();
 			$constructor->invoke($instance, 'netherite', 6, 2031, 9, 10);
 			$register->invoke(null, $instance);
-			
+
 			$this->registerItem(new Item(new ItemIdentifier(CustomIds::ITEM_NETHERITE_INGOT, 0), 'Netherite Ingot'));
 			$this->registerItem(new Item(new ItemIdentifier(CustomIds::ITEM_NETHERITE_SCRAP, 0), 'Netherite Scrap'));
 			$this->registerItem(new Sword(new ItemIdentifier(CustomIds::ITEM_NETHERITE_SWORD, 0), 'Netherite Sword', ToolTier::NETHERITE()));
@@ -371,6 +380,9 @@ class Main extends PluginBase
 			$this->registerItem(new Armor(new ItemIdentifier(CustomIds::NETHERITE_CHESTPLATE, 0), 'Netherite Chestplate', new ArmorTypeInfo(3, 592, ArmorInventory::SLOT_CHEST)));
 			$this->registerItem(new Armor(new ItemIdentifier(CustomIds::NETHERITE_LEGGINGS, 0), 'Netherite Leggings', new ArmorTypeInfo(3, 481, ArmorInventory::SLOT_LEGS)));
 			$this->registerItem(new Armor(new ItemIdentifier(CustomIds::NETHERITE_BOOTS, 0), 'Netherite Boots', new ArmorTypeInfo(6, 555, ArmorInventory::SLOT_FEET)));
+		}
+		if($cfg->isEnableLodestone()) {
+			$this->registerItem(new LodestoneCompass(new ItemIdentifier(CustomIds::LODESTONE_COMPASS, 0), 'Lodestone Compass'));
 		}
 	}
 
