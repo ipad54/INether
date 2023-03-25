@@ -183,7 +183,7 @@ class Main extends PluginBase
 			$this->registerBlock(new Opaque(new BID(CustomIds::ANCIENT_DEBRIS_BLOCK, 0, CustomIds::ANCIENT_DEBRIS_ITEM), "Ancient Debris", new BlockBreakInfo(30, BlockToolType::PICKAXE, ToolTier::DIAMOND()->getHarvestLevel(), 6000)));
 		}
 	
-        if($cfg->isEnableLodestone()) {
+                if($cfg->isEnableLodestone()) {
             $this->registerBlock(new Lodestone(new BID(CustomIds::LODESTONE_BLOCK, 0, CustomIds::LODESTONE_ITEM), "Lodestone", new BlockBreakInfo(3, BlockToolType::PICKAXE, 0, 15)));
         }
 		if ($cfg->isEnabledBasalt()) {
@@ -327,13 +327,11 @@ class Main extends PluginBase
 		$tf = TileFactory::getInstance();
 		if ($cfg->isEnableCampfire()) {
 			$tf->register(TileCampfire::class, ["Campfire", "minecraft:campfire"]);
-					
-        if($cfg->isEnableLodestone()) {
-            $tf->register(TileLodestone::class, ["Lodestone", "minecraft:lodestone"]);
-	} 
 		}
+		    if($cfg->isEnableLodestone()) {
+            $tf->register(TileLodestone::class, ["Lodestone", "minecraft:lodestone"]);
+        }
 	}
-
 
 
 	public function initItems(): void
@@ -355,8 +353,9 @@ class Main extends PluginBase
 			
 			$this->registerItem(new Record(new ItemIdentifier(CustomIds::RECORD_PIGSTEP, 0), RecordType::DISK_PIGSTEP(), "Record Pigstep"));
 		}
-		    if($cfg->isEnableLodestone()) {
+		     if($cfg->isEnableLodestone()) {
             $this->registerItem(new LodestoneCompass(new ItemIdentifier(CustomIds::LODESTONE_COMPASS, 0), 'Lodestone Compass'));
+        
         }
 		if ($cfg->isEnableWood()) {
 			$this->registerItem(new ItemBlock(new ItemIdentifier(CustomIds::CRIMSON_DOOOR_ITEM, 0), BlockFactory::getInstance()->get(CustomIds::CRIMSON_DOOR_BLOCK, 0)));
