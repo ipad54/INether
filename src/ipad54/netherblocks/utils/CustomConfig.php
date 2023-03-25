@@ -122,6 +122,11 @@ class CustomConfig
         return $this->match("blocks.campfire");
     }
 
+	public function isEnableLodestone()
+	{
+		return $this->match("blocks.lodestone");
+	}
+
     public function isEnableNetheriteTools()
     {
         return $this->match("items.netherite_tools");

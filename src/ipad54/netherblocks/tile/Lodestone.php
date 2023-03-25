@@ -2,11 +2,9 @@
 
 namespace ipad54\netherblocks\tile;
 
-use ipad54\netherblocks\Main;
 use pocketmine\block\tile\Spawnable;
-use pocketmine\nbt\NbtDataException;
 use pocketmine\nbt\tag\CompoundTag;
-use pocketmine\nbt\tag\IntTag;
+use pocketmine\network\mcpe\protocol\PositionTrackingDBServerBroadcastPacket;
 
 class Lodestone extends Spawnable
 {
@@ -27,16 +25,28 @@ class Lodestone extends Spawnable
 
     protected function addAdditionalSpawnData(CompoundTag $nbt): void
     {
-        $nbt->setInt(self::TAG_TRACKING, $this->lodestoneId);
+		if($this->lodestoneId > -1){
+			$nbt->setInt(self::TAG_TRACKING, $this->lodestoneId); // only exists to the client after a compass exists to track it
+		}
     }
 
     public function readSaveData(CompoundTag $nbt): void
     {
-        $this->lodestoneId = $nbt->getInt(self::TAG_TRACKING);
+        $this->lodestoneId = $nbt->getInt(self::TAG_TRACKING, -1);
     }
 
     protected function writeSaveData(CompoundTag $nbt): void
     {
         $nbt->setInt(self::TAG_TRACKING, $this->lodestoneId);
     }
+
+	protected function onBlockDestroyedHook() : void{
+		if($this->lodestoneId > -1){ // only exists to the client after a compass exists to track it
+			$this->getPosition()->getWorld()->broadcastPacketToViewers($this->getPosition(), PositionTrackingDBServerBroadcastPacket::create(
+				PositionTrackingDBServerBroadcastPacket::ACTION_DESTROY,
+				$this->getLodestoneId(),
+				$this->getSerializedSpawnCompound()
+			));
+		}
+	}
 }
