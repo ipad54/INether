@@ -308,7 +308,7 @@ class Main extends PluginBase
 		}
 
 		if($cfg->isEnableLodestone()) {
-			$this->registerBlock(new Lodestone(new BID(CustomIds::LODESTONE_BLOCK, 0, CustomIds::LODESTONE_ITEM), "Lodestone", new BlockBreakInfo(3, BlockToolType::PICKAXE, 0, 15)));
+			$this->registerBlock(new Lodestone(new BID(CustomIds::LODESTONE_BLOCK, 0, CustomIds::LODESTONE_ITEM, TileLodestone::class), "Lodestone", new BlockBreakInfo(3, BlockToolType::PICKAXE, 0, 15)));
 		}
 
 	}
