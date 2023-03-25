@@ -22,7 +22,7 @@ class CustomConfig
         return $this->match("blocks.crying_obsidian");
     }
 
-    public function isEnabledLodestone()
+       public function isEnableLodestone()
     {
         return $this->match("blocks.lodestone");
     }
