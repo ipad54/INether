@@ -4,6 +4,7 @@ namespace ipad54\netherblocks\tile;
 
 use pocketmine\block\tile\Spawnable;
 use pocketmine\nbt\tag\CompoundTag;
+use pocketmine\network\mcpe\protocol\PositionTrackingDBServerBroadcastPacket;
 
 class Lodestone extends Spawnable
 {
@@ -36,4 +37,12 @@ class Lodestone extends Spawnable
     {
         $nbt->setInt(self::TAG_TRACKING, $this->lodestoneId);
     }
+
+	protected function onBlockDestroyedHook() : void{
+		$this->getPosition()->getWorld()->broadcastPacketToViewers($this->getPosition(), PositionTrackingDBServerBroadcastPacket::create(
+			PositionTrackingDBServerBroadcastPacket::ACTION_DESTROY,
+			$this->getLodestoneId(),
+			$this->getSerializedSpawnCompound()
+		));
+	}
 }
