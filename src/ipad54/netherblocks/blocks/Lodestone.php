@@ -6,12 +6,11 @@ use ipad54\netherblocks\items\LodestoneCompass;
 use ipad54\netherblocks\Main;
 use ipad54\netherblocks\sound\LodestoneCompassLinkSound;
 use ipad54\netherblocks\tile\Lodestone as TileLodestone;
-use ipad54\netherblocks\utils\CustomIds;
 use pocketmine\block\Block;
 use pocketmine\block\Opaque;
 use pocketmine\item\Compass;
 use pocketmine\item\Item;
-use pocketmine\item\ItemFactory;
+use pocketmine\item\StringToItemParser;
 use pocketmine\math\Vector3;
 use pocketmine\player\Player;
 use pocketmine\world\BlockTransaction;
@@ -55,7 +54,8 @@ class Lodestone extends Opaque {
 
         if($item instanceof Compass or $item instanceof LodestoneCompass){
             $item->pop();
-            $item = ItemFactory::getInstance()->get(CustomIds::LODESTONE_COMPASS, 0);
+			/** @var LodestoneCompass $item */
+			$item = StringToItemParser::getInstance()->parse("lodestone_compass");
             $item->setLodestoneId($this->lodestoneId);
             $this->position->getWorld()->addSound($this->position, new LodestoneCompassLinkSound());
             $player->getInventory()->addItem($item);
