@@ -327,13 +327,13 @@ class Main extends PluginBase
 		$tf = TileFactory::getInstance();
 		if ($cfg->isEnableCampfire()) {
 			$tf->register(TileCampfire::class, ["Campfire", "minecraft:campfire"]);
-			
-				}
+					
         if($cfg->isEnableLodestone()) {
             $tf->register(TileLodestone::class, ["Lodestone", "minecraft:lodestone"]);
         }
 		}
 	}
+}
 
 
 	public function initItems(): void
