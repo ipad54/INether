@@ -333,7 +333,7 @@ class Main extends PluginBase
         }
 		}
 	}
-}
+
 
 
 	public function initItems(): void
