@@ -3,7 +3,6 @@
 namespace ipad54\netherblocks\blocks;
 
 use ipad54\netherblocks\items\LodestoneCompass;
-use ipad54\netherblocks\Main;
 use ipad54\netherblocks\sound\LodestoneCompassLinkSound;
 use ipad54\netherblocks\tile\Lodestone as TileLodestone;
 use pocketmine\block\Block;
@@ -16,6 +15,12 @@ use pocketmine\player\Player;
 use pocketmine\world\BlockTransaction;
 
 class Lodestone extends Opaque {
+
+	private static int $nextId = 0;
+
+	private static function getNextId() : int{
+		return self::$nextId++;
+	}
 
     protected int $lodestoneId = -1;
 
@@ -39,8 +44,8 @@ class Lodestone extends Opaque {
 
     public function place(BlockTransaction $tx, Item $item, Block $blockReplace, Block $blockClicked, int $face, Vector3 $clickVector, ?Player $player = null): bool
     {
-        if($this->lodestoneId == -1){
-            $this->lodestoneId = Main::getInstance()->addLodestone($this->position);
+        if($this->lodestoneId === -1){
+            $this->lodestoneId = self::getNextId();
         }
         return parent::place($tx, $item, $blockReplace, $blockClicked, $face, $clickVector, $player);
     }
