@@ -15,7 +15,7 @@ class EventListener implements Listener {
 		$target = $event->getBlock();
 		$block = $target->getSide($face);
 		$world = $target->getPosition()->getWorld();
-		if($block->getId() === CustomIds::SOUL_FIRE_BLOCK){
+		if($event->getAction() === PlayerInteractEvent::LEFT_CLICK_BLOCK && $block->getId() === CustomIds::SOUL_FIRE_BLOCK){
 			$world->setBlock($block->getPosition(), VanillaBlocks::AIR());
 			$world->addSound($block->getPosition()->add(0.5, 0.5, 0.5), new FireExtinguishSound());
 		}
