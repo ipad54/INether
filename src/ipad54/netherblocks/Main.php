@@ -13,7 +13,6 @@ use ipad54\netherblocks\blocks\Fungus;
 use ipad54\netherblocks\blocks\GildedBlackstone;
 use ipad54\netherblocks\blocks\Hyphae;
 use ipad54\netherblocks\blocks\Log;
-// use ipad54\netherblocks\blocks\Lodestone;
 use ipad54\netherblocks\blocks\NetherGoldOre;
 use ipad54\netherblocks\blocks\Nylium;
 use ipad54\netherblocks\blocks\Planks;
@@ -87,7 +86,6 @@ use pocketmine\plugin\PluginBase;
 use pocketmine\scheduler\AsyncTask;
 use pocketmine\Server;
 use pocketmine\utils\Config;
-use pocketmine\utils\TextFormat;
 use ReflectionMethod;
 use const pocketmine\BEDROCK_BLOCK_UPGRADE_SCHEMA_PATH;
 
@@ -98,8 +96,6 @@ class Main extends PluginBase
 	private static self $instance;
 
 	protected function onLoad(): void
-			
-	
 	{
 		self::$instance = $this;
 		$this->saveResource("config.yml");
@@ -108,20 +104,14 @@ class Main extends PluginBase
 		$this->initBlocks();
 		$this->initTiles();
 		$this->initItems();
-		$this->getLogger()->info(TextFormat::LIGHT_PURPLE . "Loading some magic!!! INether For FunworldMCPE. https://discord.me/funworld. pull out a chair and stay a while. fixed by skyss0fly:)");
 	}
 
 	protected function onEnable(): void
-			
-		
-	
 	{ //credits https://github.com/cladevs/VanillaX
 		Server::getInstance()->getPluginManager()->registerEvents(new EventListener(), $this);
-		
 		Server::getInstance()->getAsyncPool()->addWorkerStartHook(function (int $worker): void {
 			Server::getInstance()->getAsyncPool()->submitTaskToWorker(new class() extends AsyncTask {
 
-			
 				public function onRun(): void
 				{
 					Main::initializeRuntimeIds();
@@ -182,10 +172,6 @@ class Main extends PluginBase
 		if ($cfg->isEnabledDebris()) {
 			$this->registerBlock(new Opaque(new BID(CustomIds::ANCIENT_DEBRIS_BLOCK, 0, CustomIds::ANCIENT_DEBRIS_ITEM), "Ancient Debris", new BlockBreakInfo(30, BlockToolType::PICKAXE, ToolTier::DIAMOND()->getHarvestLevel(), 6000)));
 		}
-	
-        //        if($cfg->isEnableLodestone()) {
-        //    $this->registerBlock(new Lodestone(new BID(CustomIds::LODESTONE_BLOCK, 0, CustomIds::LODESTONE_ITEM), "Lodestone", new BlockBreakInfo(3, BlockToolType::PICKAXE, 0, 15)));
-      //  }
 		if ($cfg->isEnabledBasalt()) {
 			$this->registerBlock(new Basalt(new BID(CustomIds::BASALT_BLOCK, 0, CustomIds::BASALT_ITEM), "Basalt", new BlockBreakInfo(1.25, BlockToolType::PICKAXE, ToolTier::WOOD()->getHarvestLevel(), 4.2)));
 			$this->registerBlock(new PolishedBasalt(new BID(CustomIds::POLISHED_BASALT_BLOCK, 0, CustomIds::POLISHED_BASALT_ITEM), "Polished Basalt", new BlockBreakInfo(1.25, BlockToolType::PICKAXE, ToolTier::WOOD()->getHarvestLevel(), 4.2)));
@@ -328,11 +314,7 @@ class Main extends PluginBase
 		if ($cfg->isEnableCampfire()) {
 			$tf->register(TileCampfire::class, ["Campfire", "minecraft:campfire"]);
 		}
-	//	    if($cfg->isEnableLodestone()) {
-     //       $tf->register(TileLodestone::class, ["Lodestone", "minecraft:lodestone"]);
-     //   }
 	}
-
 
 	public function initItems(): void
 	{
@@ -340,7 +322,6 @@ class Main extends PluginBase
 		if ($cfg->isEnabledSoulSoil()) {
 			$this->registerItem(new FlintAndSteel(new ItemIdentifier(ItemIds::FLINT_AND_STEEL, 0), "Flint and Steel"), false);
 		}
-		
 		if ($cfg->isEnablePigstep()) {
 			$class = new \ReflectionClass(RecordType::class);
 			$register = $class->getMethod('register');
@@ -353,10 +334,6 @@ class Main extends PluginBase
 			
 			$this->registerItem(new Record(new ItemIdentifier(CustomIds::RECORD_PIGSTEP, 0), RecordType::DISK_PIGSTEP(), "Record Pigstep"));
 		}
-	//	     if($cfg->isEnableLodestone()) {
-       //     $this->registerItem(new LodestoneCompass(new ItemIdentifier(CustomIds::LODESTONE_COMPASS, 0), 'Lodestone Compass'));
-        
-      //  }
 		if ($cfg->isEnableWood()) {
 			$this->registerItem(new ItemBlock(new ItemIdentifier(CustomIds::CRIMSON_DOOOR_ITEM, 0), BlockFactory::getInstance()->get(CustomIds::CRIMSON_DOOR_BLOCK, 0)));
 			$this->registerItem(new ItemBlock(new ItemIdentifier(CustomIds::WARPED_DOOR_ITEM, 0), BlockFactory::getInstance()->get(CustomIds::WARPED_DOOR_BLOCK, 0)));
@@ -395,7 +372,8 @@ class Main extends PluginBase
 			$this->registerItem(new Armor(new ItemIdentifier(CustomIds::NETHERITE_LEGGINGS, 0), 'Netherite Leggings', new ArmorTypeInfo(3, 481, ArmorInventory::SLOT_LEGS)));
 			$this->registerItem(new Armor(new ItemIdentifier(CustomIds::NETHERITE_BOOTS, 0), 'Netherite Boots', new ArmorTypeInfo(6, 555, ArmorInventory::SLOT_FEET)));
 		}
-	
+	}
+
 	private function registerBlock(Block $block, bool $registerToParser = true, bool $addToCreative = true): void
 	{
 		BlockFactory::getInstance()->register($block, true);
