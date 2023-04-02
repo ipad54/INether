@@ -3,6 +3,6 @@ build-by-default: true
 branches:
 - master
 projects:
-  INether:
+  ICaves:
     path: ""
 ...
