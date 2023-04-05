@@ -41,7 +41,7 @@ use ipad54\netherblocks\items\FlintAndSteel;
 use ipad54\netherblocks\listener\EventListener;
 use ipad54\netherblocks\utils\CustomConfig;
 use ipad54\netherblocks\utils\CustomIds;
-use skyss0fly\nbtblock;
+use skyss0fly\nbtblock\nbtblock;
 use pocketmine\block\Block;
 use pocketmine\block\BlockBreakInfo;
 use pocketmine\block\BlockFactory;
