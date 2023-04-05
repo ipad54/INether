@@ -3,11 +3,7 @@
 <p align="center">
 	<a href="https://vk.com/m.play2018"><img src="https://github.com/ipad54/INether/blob/6cfb5ea0f4fdac553b6aaa6df4bce804ad0f7ae0/icon.png"></img></a><br>
 	<b>This plugin implements the functionality of items & blocks that were added in 1.16</b>
-	⚠️ this plugin will be getting a rewrite completely in the near future!!
-Whats going to change:
-Support for PHP8.2 ,
-new and Improved Version of the main code ,
-Discontinuation of https://github.com/pmmp/BedrockBlockUpgradeSchema being required in the plugin
+	⚠️ INetherForFunworld is No Longer supported or recieving updates. please migrate to https://github.com/skyss0fly/IBlocks 
 </p>
 
 ### Implemented blocks
