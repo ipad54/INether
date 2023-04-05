@@ -54,6 +54,7 @@ use pocketmine\block\FenceGate;
 use pocketmine\block\Opaque;
 use pocketmine\block\Stair;
 use pocketmine\block\StonePressurePlate;
+use pocketmine\block\Transparent;
 use pocketmine\block\tile\Sign as TileSign;
 use pocketmine\block\tile\TileFactory;
 use pocketmine\block\utils\RecordType;
