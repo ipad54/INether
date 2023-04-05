@@ -41,8 +41,7 @@ use ipad54\netherblocks\items\FlintAndSteel;
 use ipad54\netherblocks\listener\EventListener;
 use ipad54\netherblocks\utils\CustomConfig;
 use ipad54\netherblocks\utils\CustomIds;
-use ipad54\resources\nbt_upgrade_schema;
-use ipad54\resources;
+use skyss0fly\nbtblock;
 use pocketmine\block\Block;
 use pocketmine\block\BlockBreakInfo;
 use pocketmine\block\BlockFactory;
@@ -139,7 +138,7 @@ class Main extends PluginBase
 		$method = new ReflectionMethod(RuntimeBlockMapping::class, "registerMapping");
 		$method->setAccessible(true);
 
-		$blockIdMap = json_decode(file_get_contents( nbt_upgrade_schema . 'block_legacy_id_map.json'), true);
+		$blockIdMap = json_decode(file_get_contents( nbtblock . 'block_legacy_id_map.json'), true);
 		$metaMap = [];
 
 		foreach ($instance->getBedrockKnownStates() as $runtimeId => $nbt) {
