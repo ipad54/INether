@@ -87,7 +87,7 @@ use pocketmine\scheduler\AsyncTask;
 use pocketmine\Server;
 use pocketmine\utils\Config;
 use ReflectionMethod;
-use const skyss0fly\nbtblocks;
+use  skyss0fly\nbtblocks;
 
 class Main extends PluginBase
 {
