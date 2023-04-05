@@ -3,11 +3,11 @@
 <p align="center">
 	<a href="https://vk.com/m.play2018"><img src="https://github.com/ipad54/INether/blob/6cfb5ea0f4fdac553b6aaa6df4bce804ad0f7ae0/icon.png"></img></a><br>
 	<b>This plugin implements the functionality of items & blocks that were added in 1.16</b>
-	⚠️ this plugin will be getting a rewrite completely in the near future
+	⚠️ this plugin will be getting a rewrite completely in the near future!!
 Whats going to change:
-[X] Support for PHP8.2 
-[X] new and Improved Version of the main code 
-[X] Discontinuation of https://github.com/pmmp/BedrockBlockUpgradeSchema being required in the plugin
+Support for PHP8.2 ,
+new and Improved Version of the main code ,
+Discontinuation of https://github.com/pmmp/BedrockBlockUpgradeSchema being required in the plugin
 </p>
 
 ### Implemented blocks
