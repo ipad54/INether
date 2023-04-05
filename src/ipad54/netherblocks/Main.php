@@ -41,7 +41,6 @@ use ipad54\netherblocks\items\FlintAndSteel;
 use ipad54\netherblocks\listener\EventListener;
 use ipad54\netherblocks\utils\CustomConfig;
 use ipad54\netherblocks\utils\CustomIds;
-use skyss0fly\nbtblocks;
 use pocketmine\block\Block;
 use pocketmine\block\BlockBreakInfo;
 use pocketmine\block\BlockFactory;
@@ -88,7 +87,7 @@ use pocketmine\scheduler\AsyncTask;
 use pocketmine\Server;
 use pocketmine\utils\Config;
 use ReflectionMethod;
-
+use const skyss0fly\nbtblocks;
 
 class Main extends PluginBase
 {
